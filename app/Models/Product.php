@@ -7,5 +7,4 @@
         <h4>{{$item["title"]}}</h4>
         
     @endforeach
-    <p>ครีม</p>
 @endsection

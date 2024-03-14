@@ -9,4 +9,5 @@ Route::get('/', function () {
 });
 
 Route::get('product',[ProductController::class,'index'])->name('product');
+//Route::get('add',[ProductController::class,'addProduct'])->name('add');
 
