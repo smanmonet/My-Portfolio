@@ -16,10 +16,8 @@
                     <!-- จำนวน : <input type="number" id="qty" min="1" max={{ $item->quantity }} value="1"
                                 class="btn btn-secondary">!-->
                     &nbsp;&nbsp;
-                    <a href="{{ route('cart', ['productID' => $item->productID, 'quantity' => 1]) }}"
-                        class="btn btn-dark">ใส่รถเข็น</a>
                     <a href="{{ route('cart', ['productID' => $item->productID, 'quantity' => isset(session('list')[$item->productID]) ? session('list')[$item->productID] + 1 : 1]) }}"
-                        class="btn btn-dark">ใส่รถเข็น2</a>
+                        class="btn btn-dark">ใส่รถเข็น</a>
                 @else
                     <p class = "text text-danger">สินค้าหมด</p>
                 @endif
