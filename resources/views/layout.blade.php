@@ -26,6 +26,7 @@
                     <a class="nav-link" href="/product">Product</a>
                     <a class="nav-link" href="#">Group</a>
                     <a class="nav-link" href="#">History</a>
+                    <a class="nav-link" href="/cart">Cart</a>
                 </div>
             </div>
         </div>

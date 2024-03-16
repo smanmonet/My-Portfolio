@@ -11,15 +11,18 @@
                 <h5 class="card-title">{{ $item->name }}</h5><br>
                 <p class="card-text">ราคา : {{ $item->price }}บาท </p>
                 <p class="card-text">PV : {{ $item->PVPercent }}point</p>
-                @if ($item->quantity !=0)
+                @if ($item->quantity != 0)
                     <p class = "text text-success">จำนวนสินค้าในคลัง : {{ $item->quantity }} ชิ้น</p>
-                    จำนวน : <input type="number" name="quantity" min="1" max= {{$item->quantity}} class="btn btn-secondary">
+                    <!-- จำนวน : <input type="number" id="qty" min="1" max={{ $item->quantity }} value="1"
+                                class="btn btn-secondary">!-->
                     &nbsp;&nbsp;
-                    <a href="#" class="btn btn-dark">ใส่รถเข็น</a>
+                    <a href="{{ route('cart', ['productID' => $item->productID, 'quantity' => 1]) }}"
+                        class="btn btn-dark">ใส่รถเข็น</a>
+                    <a href="{{ route('cart', ['productID' => $item->productID, 'quantity' => isset(session('list')[$item->productID]) ? session('list')[$item->productID] + 1 : 1]) }}"
+                        class="btn btn-dark">ใส่รถเข็น2</a>
                 @else
                     <p class = "text text-danger">สินค้าหมด</p>
                 @endif
-                
             </div>
         </div>
     @endforeach

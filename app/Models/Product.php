@@ -1,10 +1,12 @@
-@extends('layout')
-@section('title','Product')
-@section('content')
-    <h2>Product</h2>
-    <hr>
-    @foreach ($products as $item)
-        <h4>{{$item["title"]}}</h4>
-        
-    @endforeach
-@endsection
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Product extends Model
+{
+    use HasFactory;
+    //protected $table = 'product';
+}
