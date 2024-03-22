@@ -2,6 +2,7 @@
 @section('title', 'Cart')
 @section('content')
     <tbody>
+        <h2 class="text text-center py-2">Cart</h2>
         @if(session('cart'))
             @foreach(session('cart') as $productID => $details)
             <div class="card">
@@ -31,8 +32,11 @@
             @endforeach
             <br><h4>จำนวนสินค้าทั้งหมด {{$sumQty}}ชิ้น 
                 <br>ราคารวม {{$sumP}} บาท</h4><br>
+                <input type="submit" value="สั่งซื้อสินค้า" class="btn btn-dark my-3"> 
+        @else
+            <h4 class="my-5"><center>Empty Cart</center></h4>
         @endif
         
     </tbody>
-<input type="submit" value="สั่งซื้อสินค้า" class="btn btn-dark my-3"> 
+
 @endsection
