@@ -10,7 +10,7 @@ use App\Http\Controllers\ProductController;
 Route::get('/', function () {
     return view('welcome');
 });
-//per
+//ProductMem,Cart
 Route::get('product',[ProductController::class,'index'])->name('product');
 Route::get('cart/{productID}',[CartController::class,'addToCart'])->name('cartadd');
 Route::get('cart',[CartController::class,'index'])->name('cart');
