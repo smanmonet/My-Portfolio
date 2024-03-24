@@ -12,7 +12,7 @@ class ProductController extends Controller
 {
     public function index()
     {
-
+        
         $products = DB::table('product')->get();
         return view('product', compact('products'));
     }

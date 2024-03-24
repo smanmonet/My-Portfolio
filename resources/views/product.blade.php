@@ -13,7 +13,7 @@
             <img src="{{$item ->image}}" class="rounded mx-auto d-block" alt="...">
 
             <div class="card-body">
-                <h5 class="card-title">{{ $item->name }}</h5><br>
+                <h5 class="card-title">{{ $item->productname }}</h5><br>
                 <p class="card-text">ราคา : {{$item->price}}บาท </p>
                 <p class="card-text">PV : {{$item->PVPercent}}point</p>
                 @if ($item->quantity != 0)

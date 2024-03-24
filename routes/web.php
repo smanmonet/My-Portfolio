@@ -16,6 +16,6 @@ Route::get('cart',[CartController::class,'index'])->name('cart');
 Route::get('deleteCart/{productID}',[CartController::class,'deleteCart'])->name('deletecart');
 Route::get('deletepd/{productID}',[CartController::class,'deletepd'])->name('deletepd');
 //Route kuy  per
-//hkgkguk
+
 
 
