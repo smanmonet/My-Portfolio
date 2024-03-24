@@ -33,5 +33,5 @@ Route::get('/Promotion/info/{id}',[Promotion::class,'info'])->name('info');
 Route::post('/Promotion/confirm',[addPromotion::class,'confirm'])->name('submit.form');
 Route::post('/Promotion/confirmReal',[confirmPromotion::class,'confirmkub'])->name('confirm.form');
 //
-
+//sd
 
