@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layoutMember')
 @section('title', 'Cart')
 @section('content')
     <tbody>

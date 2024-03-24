@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layoutMember')
 @section('title','Cart')
 @section('content')
     <h2 class="text text-center py-2">Cart</h2>

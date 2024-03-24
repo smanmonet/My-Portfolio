@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layoutMember')
 @section('title', 'Home')
 @section('content')
     <h2>
