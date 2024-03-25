@@ -49,7 +49,7 @@ class CartController extends Controller
         }
         return redirect('cart');
     }
-    public function deletepd(Request $request){
+    public function deletePd(Request $request){
         if($request->productID) {
             $cart = session()->get('cart');
             if(isset($cart[$request->productID]) ) {

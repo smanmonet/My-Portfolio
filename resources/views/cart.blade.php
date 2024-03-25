@@ -1,37 +1,51 @@
 @extends('layoutMember')
 @section('title', 'Cart')
 @section('content')
+
+    <head>
+        <h1 style="text-align: center" style="padding: 60px">รถเข็นของฉัน</h1>
+    </head>
     <tbody>
-        <h2 class="text text-center py-2">Cart</h2>
         @if (session('cart'))
             @foreach (session('cart') as $productID => $details)
-                <div class="card">
-                    <img src="..." class="rounded mx-auto d-block" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ $details['name'] }}</h5><br>
-                        <p class="card-text">รหัสสินค้า : {{ $details['productID'] }} </p>
-                        <p class="card-text">จำนวน : {{ $details['quantity'] }}ชิ้น </p>
-                        <p class="card-text">ราคารวม : {{ $details['price'] * $details['quantity'] }} บาท </p>
-                        <div style="display: none"> {{ $sumQty += $details['quantity'] }}</div>
-                        <div style="display: none"> {{ $sumP += $details['price'] * $details['quantity'] }}</div>
-                        <a href="{{ route('deletecart', $details['productID']) }}" class="btn btn-danger"
-                            onclick="return confirm('ต้องการลดจำนวนสินค้า{{ $details['name'] }}หรือไม่ ?')">ลบทีละชิ้น
-                        </a>
-                        <a href="{{ route('deletepd', $details['productID']) }}" class="btn btn-danger"
-                            onclick="return confirm('ต้องการลบสินค้า{{ $details['name'] }}ออกจากตะกร้าหรือไม่ ?')">ลบสินค้า
-                        </a>
-                    </div>
-                </div>
+                <div class="d-flex justify-content-center">
+                    <div class=" justify-content-center align-items-end" style="padding-top:10px">
+
+                        <div class="col m-0 " style="width:1000px;">
+                            <div class="d-flex card h-50" style="border-radius:20px;">
+
+                                <img src="..." class="rounded mx-auto d-block" alt="...">
+                                <div class="d-flex flex-row justify-content-around card-body p-4">
+
+                                    <h4 class="card-title">{{ $details['name'] }}</h4>
+                                    <br>
+                                    <p class="card-text">รหัสสินค้า : {{ $details['productID'] }} </p>
+                                    <p class="card-text">จำนวน : {{ $details['quantity'] }} ชิ้น </p>
+                                    <p class="card-text">ราคารวม : {{ $details['price'] * $details['quantity'] }} บาท </p>
+                                    <div style="display: none"> {{ $sumQty += $details['quantity'] }}</div>
+                                    <div style="display: none"> {{ $sumP += $details['price'] * $details['quantity'] }}
+                                    </div>
+                                    <a href="{{ route('deleteCart', $details['productID']) }}" class="btn btn-danger"
+                                        style="width: 10%"
+                                        onclick="return confirm('ต้องการลดจำนวนสินค้า{{ $details['name'] }}หรือไม่ ?')">ลบที่ละชิ้น
+                                    </a>
+                                    <a href="{{ route('deletePd', $details['productID']) }}" class="btn btn-danger"
+                                        style="width: 18%"
+                                        onclick="return confirm('ต้องการลบสินค้า{{ $details['name'] }}ออกจากตะกร้าหรือไม่ ?')">ลบสินค้าของจากตะกร้า
+                                    </a>
+                                </div>
+                            </div>
             @endforeach
             <br>
             <h4>จำนวนสินค้าทั้งหมด {{ $sumQty }}ชิ้น
                 <br>ราคารวม {{ $sumP }} บาท
             </h4><br>
-            <input type="submit" value="สั่งซื้อสินค้า" class="btn btn-dark my-3">
-        @else
-            <h4 class="my-5">
-                <center>Empty Cart</center>
-            </h4>
-        @endif
     </tbody>
+    <a href="/clearCart/{productID}" style= "background-color: red" class="btn btn-dark my-3"
+        value="ยกเลิกสินค้า">ยกเลิกสินค้า</a>
+    <a href="/order" style="background-color: blue" class="btn btn-dark my-3" value="สั่งซื้อสินค้า">สั่งซื้อสินค้า</a>
+
+    @endif
+
+
 @endsection

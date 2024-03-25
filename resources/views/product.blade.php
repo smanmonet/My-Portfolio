@@ -19,7 +19,7 @@
                 @if ($item->quantity != 0)
                     <p class = "text text-success">จำนวนสินค้าในคลัง : {{$item->quantity}} ชิ้น</p>
                     &nbsp;&nbsp;
-                    <a href="{{route('cartadd', $item->productID) }}"
+                    <a href="{{route('cartAdd', $item->productID) }}"
                         class="btn btn-dark">ใส่รถเข็น</a>
                 @else
                     <p class = "text text-danger">สินค้าหมด</p>
