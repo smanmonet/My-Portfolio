@@ -8,6 +8,8 @@ use App\Http\Controllers\Promotion;
 use App\Http\Controllers\addPromotion;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\FinanceController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -34,3 +36,15 @@ Route::post('/Promotion/confirmReal',[confirmPromotion::class,'confirmkub'])->na
 //Order
 Route::get('order',[OrderController::class,'index'])->name('order');
 Route::post('confirmOrder',[ConfirmOrder::class,'confirm'])->name('confirm'); 
+
+//member ->pang
+Route::get('/HomeMembers', [HomeController::class,'HomeMember'])->name('HomeMember');
+Route::get('/search', [HomeController::class,'search']);
+Route::get('/HomeMembers/addmember',[HomeController::class,'index']);
+Route::post('/HomeMembers/addmember',[HomeController::class,'store']);
+Route::get('/HomeMembers/{id}/update',[HomeController::class,'update']);
+Route::put('/HomeMembers/{id}/update',[HomeController::class,'edit']);
+Route::delete('/service-cate-delete/{id}',[HomeController::class,'delete']);
+//Finance ->pang
+Route::get('/Finance', [FinanceController::class,'order'])->name('finance');
+Route::get('order/{id}',[FinanceController::class,'updateStatus']);
