@@ -40,12 +40,16 @@
             <h4>จำนวนสินค้าทั้งหมด {{ $sumQty }}ชิ้น
                 <br>ราคารวม {{ $sumP }} บาท
             </h4><br>
+
+            <a href="/clearCart/{productID}" style= "background-color: red" class="btn btn-dark my-3"
+                value="ยกเลิกสินค้า">ยกเลิกสินค้า</a>
+            <a href="/order" style="background-color: blue" class="btn btn-dark my-3"
+                value="สั่งซื้อสินค้า">สั่งซื้อสินค้า</a>
+        @else
+            <h4 class="my-5">
+                <center>Empty Cart</center>
+            </h4>
+        @endif
     </tbody>
-    <a href="/clearCart/{productID}" style= "background-color: red" class="btn btn-dark my-3"
-        value="ยกเลิกสินค้า">ยกเลิกสินค้า</a>
-    <a href="/order" style="background-color: blue" class="btn btn-dark my-3" value="สั่งซื้อสินค้า">สั่งซื้อสินค้า</a>
-
-    @endif
-
 
 @endsection

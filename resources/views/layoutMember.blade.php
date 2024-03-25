@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <<meta charset="UTF-8">
+    <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>@yield('title') | SuperMart</title>
@@ -29,7 +29,7 @@
                     <a class="nav-link" href="/product">Product</a>
                     <a class="nav-link" href="#">Group</a>
                     <a class="nav-link" href="#">History</a>
-                    <!--<span>{{ count((array) session('cart')) }}</span>-->
+                    
                 </div>
 
             </div>
@@ -39,6 +39,12 @@
                 <img src="https://cdn-icons-png.freepik.com/256/6022/6022876.png" style="height: 40px">
                 <div style="color: aliceblue ;">
                     </div>
+                    @if (count((array) session('cart')) != 0)
+                        <span class="text-primary-emphasis">{{ count((array) session('cart')) }}</span>
+                    @else
+                    <span> </span>
+
+                    @endif
                 <a style="padding: 10px ;color: rgb(170, 176, 182);padding: 10px" href="/cart" class="nav-link">
                     <h5>Cart</h5>
                 </a>
