@@ -18,7 +18,7 @@ use App\Http\Controllers\UserOrAdminController;
 use App\Http\Controllers\HistoryDetailController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('UserOrAdmin');
 });
 //ProductMem,Cart
 Route::get('product',[ProductController::class,'index'])->name('product');
