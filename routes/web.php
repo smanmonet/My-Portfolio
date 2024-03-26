@@ -71,3 +71,13 @@ Route::post('/loginAdmin',[AuthAdminController::class,'loginPostAdmin'])->name('
 Route::delete('/logoutAdmin',[AuthAdminController::class,'logoutAdmin'])->name('logoutAdmin');
 
 Route::get('/UserOrAdmin',[UserOrAdminController::class,'index']); 
+
+//stock -> aum
+Route::get('stock_store',[ProductController::class,'stock'])->name('stock_store');
+Route::get('stock_edit',[ProductController::class,'stock_edit'])->name('stock_edit');
+Route::get('/products/create', [ProductController::class, 'create'])->name('create');
+Route::post('/product/created', [ProductController::class, 'store'])->name('store');
+Route::get('product/{id}/edit', [ProductController::class, 'edit'])->name('edit');
+Route::put('product/{id}/product', [ProductController::class, 'update'])->name('update');
+Route::delete('/product/{id}', [ProductController::class, 'delete'])->name('delete');
+
