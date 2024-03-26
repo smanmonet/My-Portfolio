@@ -22,14 +22,18 @@
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav" style="font-size: 20px">
-                    <a class="nav-link" aria-current="page" href="/">Home</a>
+                    {{-- <a class="nav-link" aria-current="page" href="/">Home</a>
                     <a class="nav-link" href="#">Promotion</a>
                     <a class="nav-link" href="/product">Product</a>
-                    <a class="nav-link" href="#">Group</a>
-                    <a class="nav-link" href="#">History</a>
-                    
+                    <a class="nav-link" href="#">Group</a> --}}
+                    <form action="{{ route('History.index') }}" method="POST" class="d-flex">
+                        @csrf
+                        <input type="hidden" name="memID" value="{{$members}}">
+                        <button type="submit" class="nav-link active" aria-current="page">History</button>
+                    </form>
                 </div>
 
             </div>

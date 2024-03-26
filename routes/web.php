@@ -10,6 +10,12 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\FinanceController;
+use App\Http\Controllers\HistoryController;
+use App\Http\Controllers\NotiController;
+use App\Http\Controllers\AuthUserController;
+use App\Http\Controllers\AuthAdminController;
+use App\Http\Controllers\UserOrAdminController;
+use App\Http\Controllers\HistoryDetailController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -48,3 +54,20 @@ Route::delete('/service-cate-delete/{id}',[HomeController::class,'delete']);
 //Finance ->pang
 Route::get('/Finance', [FinanceController::class,'order'])->name('finance');
 Route::get('order/{id}',[FinanceController::class,'updateStatus']);
+
+//earth
+Route::get('/homeAdmin',[HomeController::class,'indexAdmin']); 
+
+Route::post('/History',[HistoryController::class,'index'])->name('History.index');
+Route::get('/info/{id}',[HistoryDetailController::class,'index'])->name('info');
+Route::post('Notification',[NotiController::class,'index'])->name('Notification.index'); 
+
+Route::get('/login',[AuthUserController::class,'login'])->name('login');  
+Route::post('/login',[AuthUserController::class,'loginPost'])->name('login'); 
+Route::delete('/logout',[AuthUserController::class,'logout'])->name('logout');
+
+Route::get('/loginAdmin',[AuthAdminController::class,'loginAdmin'])->name('loginAdmin');  
+Route::post('/loginAdmin',[AuthAdminController::class,'loginPostAdmin'])->name('loginAdmin'); 
+Route::delete('/logoutAdmin',[AuthAdminController::class,'logoutAdmin'])->name('logoutAdmin');
+
+Route::get('/UserOrAdmin',[UserOrAdminController::class,'index']); 

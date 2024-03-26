@@ -15,17 +15,17 @@ use Spatie\QueryBuilder\AllowedFilter;
 class HomeController extends Controller
 {
     
-    public function HomeMember()
+    public function HomeMember(Request $request)
     {
        
         $member = QueryBuilder::for(Member::class)
             ->leftJoin('rank', 'member.rank', '=', 'rank.rankID')
             ->get();
 
-        $UserID = 2;
+        //$UserID = 2;
         $role = QueryBuilder::for(Role::class)
             ->leftJoin('roletype','role.roletypeID','=','roletype.roletypeID')
-            ->where('role.empID',$UserID)
+            ->where('role.empID',$request->userID)
             ->get();
 
         return view('HomeMember',compact('member','role'));
@@ -37,7 +37,7 @@ class HomeController extends Controller
             ->leftJoin('roletype','role.roletypeID','=','roletype.roletypeID')
             ->where('role.empID',$UserID)
             ->get();
-
+        
         $query = $request->search;
         $member = QueryBuilder::for(Member::class)
             ->leftJoin('rank', 'member.rank', '=', 'rank.rankID')
@@ -48,6 +48,7 @@ class HomeController extends Controller
                 ->orWhere('rank.rankName', 'like', '%'.$query.'%')
                 ->orderBy('memberID', 'ASC')
                 ->get();
+        
         return view('HomeMember',compact('member','role'));
         
     }

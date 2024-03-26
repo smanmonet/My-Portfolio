@@ -229,7 +229,8 @@ table.table td i {
             <select id="dynamic_select" style="border-radius: 10px" name="change" class="change">
                 <option value="" selected disabled >switch role</option>
                 @foreach($role as $role)
-                <option value="{{$role->roletypeID}}">{{ $role->nameType }}</option>
+                    <option value="{{$role->roletypeID}}">{{ $role->nameType }}</option>
+
                 @endforeach
             </select>
             {{-- <button style="border-radius: 8px " type="submit" class="submitchaege">OK</button> --}}
@@ -251,6 +252,7 @@ table.table td i {
     <form method="get" action="/search">
     <div class="search-box">
         {{-- <i class="material-icons">&#xE8B6;</i></input> --}}
+        
         <input type="text" name="search" id="search" class="form-control" placeholder="Search&hellip;" >
         <button type="submit" class="submitsearch">Search</button>
     </div>
