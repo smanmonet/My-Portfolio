@@ -10,6 +10,7 @@ class CartController extends Controller
    
     public function addToCart($productID)
     {
+        
         $products=DB::table('product')->where('productID',$productID)->first();
         $cart = session()->get('cart',[]);
         
@@ -32,7 +33,8 @@ class CartController extends Controller
         $sumP = 0;
         $sumQty = 0;
         //$request->session()->flush();
-        return view('cart',compact('sumP','sumQty'));
+        $ses = session()->all();
+        return view('cart',compact('sumP','sumQty','ses'));
     }
     public function deleteCart(Request $request){
         if($request->productID) {

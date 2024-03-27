@@ -1,10 +1,7 @@
 @extends('layoutMember')
-@section('title', 'Cart')
+@section('title', 'Product')
+@section('User', $ses['name'])
 @section('content')
-
-    <head>
-        <h1 style="text-align: center" style="padding: 60px">รถเข็นของฉัน</h1>
-    </head>
     <tbody>
         @if (session('cart'))
             @foreach (session('cart') as $productID => $details)
@@ -51,5 +48,4 @@
             </h4>
         @endif
     </tbody>
-
 @endsection

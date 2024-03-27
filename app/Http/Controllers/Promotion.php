@@ -13,6 +13,7 @@ class Promotion extends Controller
 {
     public function index()
     {
+        dd(session()->all());
         $emp = DB::table('promotion')->get();
         //dd($emp);
         return view('show_promotion',compact('emp'));

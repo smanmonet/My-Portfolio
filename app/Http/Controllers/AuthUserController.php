@@ -14,6 +14,9 @@ class AuthUserController extends Controller
     }
     public function loginPost(Request $request)
     {
+        //dd($request->all());
+        
+        //dd($request->session()->all());
         $this->validate($request, [
             'loginID' => 'required|email',
             'loginPass' => 'required'
@@ -26,7 +29,10 @@ class AuthUserController extends Controller
         //$member = Member::where('loginID', $credentials['email'])->first();
         $member = DB::table('member')->where('loginID', $credentials['email'])->first();
         $members = DB::table('member')->where('loginID', $request->loginID)->first(); //เอาข้อมูลส่งผ่านไป
-
+        //dd($member);
+        session(['id'=>$member->memberID]);
+        session(['name'=>$member->Name]);
+        //dd($request->session()->all());
         //dd($members);
         if ($member === null) {
             return redirect('/login')->with('error', 'Invalid member credentials.');
@@ -34,7 +40,7 @@ class AuthUserController extends Controller
 
         if ($request->loginPass === $member->loginPass) {
         //dd($members);
-            return view('welcome', compact('members'))->with('success', 'Login berhasil!');
+            return view ('welcome', compact('members'))->with('success', 'Login berhasil!');
         } else {
             return redirect('/login')->with('error', 'Invalid password.');
         }  

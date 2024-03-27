@@ -15,12 +15,15 @@ class ProductController extends Controller
 {
     public function index()
     {
+        //dd(session()->all());
+        //dd($request->session()->all());
+        $ses = session()->all();
         $products = DB::table('product')->get();
-        return view('product', compact('products'));
+        return view('product', compact('products','ses'));
     }
     public function stock()
     {
-
+        
         $products = DB::table('product')
         ->select('product.*', DB::raw('SUM(orderproduct.quantity) as stock_quantity'))
         ->leftJoin('orderproduct', 'product.productID', '=', 'orderproduct.productID')
