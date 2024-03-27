@@ -26,7 +26,7 @@ class ConfirmOrder extends Controller
         $orderData = [
             'date' => now(),
             'memberID' => 1015,
-            'status' => 'สำเร็จ',
+            'status' => 'รอตรวจสอบ',
             'empID' => 1,
             'image' => null
         ];
