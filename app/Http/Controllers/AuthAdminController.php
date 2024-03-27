@@ -50,7 +50,7 @@ class AuthAdminController extends Controller
         }
 
         if ($request->password === $admin->password) {
-            return view('/HomeMember', compact('admins','role','member','memID'))->with('success', 'Login berhasil!');
+            return view('/HomeHR', compact('admins','role','member','memID'))->with('success', 'Login berhasil!');
 
         } else {
             return redirect('/login')->with('error', 'Invalid password.');

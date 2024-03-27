@@ -107,7 +107,7 @@ nav .second-nav{
     
        <nav>
           <div class="second-nav">
-          <li><a class="sidenav-link" href="/HomeMembers"><b>Member</b></a></li>
+          <li><a class="sidenav-link" href="/HomeHR"><b>Member</b></a></li>
           </div>
        </nav>
       </div>

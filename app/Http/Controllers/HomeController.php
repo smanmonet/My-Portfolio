@@ -22,18 +22,19 @@ class HomeController extends Controller
             ->leftJoin('rank', 'member.rank', '=', 'rank.rankID')
             ->get();
 
+        $value = session()->get("id");
         //$UserID = 2;
         $role = QueryBuilder::for(Role::class)
             ->leftJoin('roletype','role.roletypeID','=','roletype.roletypeID')
-            ->where('role.empID',$request->userID)
+            ->where('role.empID',$value)
             ->get();
 
 
-        //$value = session()->get("id");
+        
         //dd($value);
         
 
-        return view('HomeMember',compact('member','role'));
+        return view('HomeHR',compact('member','role'));
     }
 
      public function search(Request $request){
@@ -56,7 +57,7 @@ class HomeController extends Controller
                 ->orderBy('memberID', 'ASC')
                 ->get();
         
-        return view('HomeMember',compact('member','role'));
+        return view('HomeHR',compact('member','role'));
         
     }
 
@@ -103,7 +104,7 @@ class HomeController extends Controller
         'PV' =>  "0",
         'upline' => $request->uplineID
     ]);
-        return redirect('HomeMembers/addmember')->with('message','new member has been added!!');
+        return redirect('HomeHR/addmember')->with('message','new member has been added!!');
     }
     public function update(int $id){
         $member = Member::find($id);
@@ -159,7 +160,7 @@ class HomeController extends Controller
        ->where('role.empID','=',$UserID)
        ->get();
 
-       return view('HomeMember',['role'=>$role]);
+       return view('HomeHR',['role'=>$role]);
     }
 
 

@@ -15,9 +15,10 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+    {{-- data-bs-theme="dark" --}}
+    <nav class="navbar navbar-expand-lg"  style=" background: #25393C">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/">Logout</a>
+         
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,6 +50,7 @@
                 </a>
                 <img src="https://cdn-icons-png.freepik.com/256/6380/6380297.png?ga=GA1.1.2057235629.1711178486&"
                     style="height: 35px">
+                    <a class="navbar-brand" href="/">Logout</a>
                 <a style="padding: 10px ;color: rgb(170, 176, 182)" href="#" class="nav-link">
                     <h5>@yield('User')</h5>
                 </a>

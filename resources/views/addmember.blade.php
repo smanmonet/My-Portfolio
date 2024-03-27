@@ -184,7 +184,7 @@ label {
 
    <nav>
       <div class="second-nav">
-      <li><a class="sidenav-link" href="{{ url('HomeMembers') }}"><b>Member</b></a></li>
+      <li><a class="sidenav-link" href="{{ url('HomeHR') }}"><b>Member</b></a></li>
       </div>
    </nav>
   </div>
@@ -193,7 +193,7 @@ label {
   <h1>Add Member</h1>
   <div class="all-addform" >
     
-    <form class="form-add" action="{{ url('HomeMembers/addmember')}}" method="POST" >
+    <form class="form-add" action="{{ url('HomeHR/addmember')}}" method="POST" >
       @csrf
       <div class="col-md-6">
       <label>Firstname<br/></label>

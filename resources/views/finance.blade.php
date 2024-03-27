@@ -146,6 +146,16 @@ nav .dropdown{
             </select>
           </div>
 
+
+
+          <div style="padding-left: 60%" class="logout">
+            <form action="{{ route('logoutAdmin') }}" method="POST" class="d-flex" role="search">
+                @csrf
+                @method('DELETE')
+                <button class="btn btn-danger" type="submit">Logout</button>
+            </form>
+          </div>
+
        </nav>
       </div>
       <h><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></h>
@@ -189,8 +199,8 @@ nav .dropdown{
             var id = $(this).val(); // get selected value
             if (id==1) { window.location = "/Finance"; }
             else if(id==2){}
-            else if(id==3){}
-            else if(id==4){window.location = "/HomeMembers";}
+            else if(id==3){window.location = "/stock_store";}
+            else if(id==4){window.location = "/HomeHR";}
             return false;
         });
       });

@@ -61,7 +61,7 @@
                                                 </a>
                                                 
                                                 <a
-                                                    href="{{route('delete',$item->proID)}}" 
+                                                    href="{{route('deletepromo',$item->proID)}}" 
                                                     class="btn btn-danger"
                                                     onclick="return confirm('ต้องการลบโปร {{$item->promotionname}} จริงๆบ่')"
                                                     > Delete

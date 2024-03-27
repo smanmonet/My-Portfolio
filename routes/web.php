@@ -42,7 +42,7 @@ Route::get('/Promotion/confirmReal',[confirmPromotion::class,'index']);
 Route::get('/DeletePromotion', function () {
     return "<h1>Edit Pro</h1>";
 });
-Route::get('/Promotion/delete/{id}',[Promotion::class,'delete'])->name('delete');//kuy
+Route::get('/Promotion/delete/{id}',[Promotion::class,'delete'])->name('deletepromo');
 Route::get('/Promotion/info/{id}',[Promotion::class,'info'])->name('promoinfo');
 Route::post('/Promotion/confirm',[addPromotion::class,'confirm'])->name('submit.form');
 Route::post('/Promotion/confirmReal',[confirmPromotion::class,'confirmkub'])->name('confirm.form');
@@ -51,12 +51,13 @@ Route::get('order',[OrderController::class,'index'])->name('order');
 Route::post('confirmOrder',[ConfirmOrder::class,'confirm'])->name('confirm'); 
 
 //member ->pang
-Route::get('/HomeMembers', [HomeController::class,'HomeMember'])->name('HomeMember');
+
+Route::get('/HomeHR', [HomeController::class,'HomeMember'])->name('HomeMember');
 Route::get('/search', [HomeController::class,'search']);
-Route::get('/HomeMembers/addmember',[HomeController::class,'index']);
-Route::post('/HomeMembers/addmember',[HomeController::class,'store']);
-Route::get('/HomeMembers/{id}/update',[HomeController::class,'update']);
-Route::put('/HomeMembers/{id}/update',[HomeController::class,'edit']);
+Route::get('/HomeHR/addmember',[HomeController::class,'index']);
+Route::post('/HomeHR/addmember',[HomeController::class,'store']);
+Route::get('/HomeHR/{id}/update',[HomeController::class,'update']);
+Route::put('/HomeHR/{id}/update',[HomeController::class,'edit']);
 Route::delete('/service-cate-delete/{id}',[HomeController::class,'delete']);
 //Finance ->pang
 Route::get('/Finance', [FinanceController::class,'order'])->name('finance');

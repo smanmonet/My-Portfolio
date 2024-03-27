@@ -190,6 +190,9 @@ table.table td i {
     color: #e1f7e1;
     top:5px;
 }
+.logout {
+   padding-left: 68%
+}
 
 </style>
 
@@ -222,7 +225,7 @@ table.table td i {
     
        <nav>
           <div class="second-nav">
-          <li><a class="sidenav-link" href="{{ url('HomeMembers') }}"><b>Member</b></a></li>
+          <li><a class="sidenav-link" href="{{ url('HomeHR') }}"><b>Member</b></a></li>
           </div>
           
           <div class="dropdown">
@@ -233,10 +236,15 @@ table.table td i {
 
                 @endforeach
             </select>
-            {{-- <button style="border-radius: 8px " type="submit" class="submitchaege">OK</button> --}}
           </div>
-       
-          
+
+          <div class="logout">
+            <form action="{{ route('logoutAdmin') }}" method="POST" class="d-flex" role="search">
+                @csrf
+                @method('DELETE')
+                <button class="btn btn-danger" type="submit">Logout</button>
+            </form>
+          </div>
        </nav>
       </div>
       <h><br/></h>
@@ -246,8 +254,9 @@ table.table td i {
       <h><br/></h>
       <h><br/></h>
       <h><br/></h>
+      
       <div action="/addmember"  class="addmember" >
-        <button onclick="location.href='{{ url('HomeMembers/addmember') }}'" class="addmember-button" >addmember</button>
+        <button onclick="location.href='{{ url('HomeHR/addmember') }}'" class="addmember-button" >addmember</button>
     </div>
     <form method="get" action="/search">
     <div class="search-box">
@@ -290,7 +299,7 @@ table.table td i {
                         <td>{{$member->rankName}}</td>
                         <td>
                             
-                            <a href="{{url('HomeMembers/'.$member->memberID.'/update')}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                            <a href="{{url('HomeHR/'.$member->memberID.'/update')}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
                             <a href="javascript:void(0)" wire:click.prevent='confirmation({{$member->memberID}})' class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                         </td>
                     </tr> 
@@ -369,7 +378,7 @@ table.table td i {
           if (id==1) { window.location = "/Finance"; }
           else if(id==2){ }
           else if(id==3){window.location = "/stock_store";}
-          else if(id==4){window.location = "/HomeMembers";}
+          else if(id==4){window.location = "/HomeHR";}
           return false;
       });
     });
