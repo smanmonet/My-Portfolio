@@ -29,7 +29,7 @@ class AuthUserController extends Controller
         //$member = Member::where('loginID', $credentials['email'])->first();
         $member = DB::table('member')->where('loginID', $credentials['email'])->first();
         $members = DB::table('member')->where('loginID', $request->loginID)->first(); //เอาข้อมูลส่งผ่านไป
-        //dd($member);
+        //dd($members);
         session(['id'=>$member->memberID]);
         session(['name'=>$member->Name]);
         $value = session()->get("id");

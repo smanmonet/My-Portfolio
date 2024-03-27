@@ -16,6 +16,9 @@ use App\Http\Controllers\AuthUserController;
 use App\Http\Controllers\AuthAdminController;
 use App\Http\Controllers\UserOrAdminController;
 use App\Http\Controllers\HistoryDetailController;
+use App\Http\Controllers\PromotionController;
+use App\Http\Controllers\ReceiptController;
+use App\Http\Controllers\GroupController;
 
 Route::get('/', function () {
     return view('UserOrAdmin');
@@ -88,4 +91,10 @@ Route::post('/product/created', [ProductController::class, 'store'])->name('stor
 Route::get('product/{id}/edit', [ProductController::class, 'edit'])->name('edit');
 Route::put('product/{id}/product', [ProductController::class, 'update'])->name('update');
 Route::delete('/product/{id}', [ProductController::class, 'delete'])->name('delete');
+
+//promotion + group -> bank
+Route::get('/promotions', [PromotionController::class,'promotion'])->name('promotion');
+Route::get('/receipt/{proID}', [ReceiptController::class,'receipt'])->name('receipt');
+Route::post('/upload/receipt', [ReceiptController::class,'upload'])->name('upload.receipt');
+Route::post('/group', [GroupController::class,'group'])->name('group');
 

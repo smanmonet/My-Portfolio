@@ -27,9 +27,9 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ">
                     <a class="nav-link" aria-current="page" href="/welcome">Home</a>
-                    <a class="nav-link" href="#">Promotion</a>
+                    <a class="nav-link" href="/promotions">Promotion</a>
                     <a class="nav-link" href="/product">Product</a>
-                    <a class="nav-link" href="#">Group</a>
+                    <a class="nav-link" href="/group">Group</a>
                     <a class="nav-link" href="#">History</a>
                     
                     
