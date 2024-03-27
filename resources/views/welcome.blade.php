@@ -1,5 +1,6 @@
 @extends('layoutMember')
-@section('title', 'Product')
+@section('title', 'Home')
+@section('User', $ses['name'])
 @section('content')
     <h2>
         <center>Home page</center>

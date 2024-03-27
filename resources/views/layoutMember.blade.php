@@ -45,6 +45,8 @@
         </div>
         <div class="d-flex flex-row justify-content-between card-footer p-4  border-top-0 bg-transparent  "
             style="text-align: right">
+            <a style="color: rgb(170, 176, 182);padding: 10px" href="#" class="nav-link">
+                <h5>noti</h5></a>
             <img src="https://cdn-icons-png.freepik.com/256/6022/6022876.png" style="height: 40px">
             <div style="color: aliceblue ;">
             </div>
@@ -59,14 +61,15 @@
             <img src="https://cdn-icons-png.freepik.com/256/6380/6380297.png?ga=GA1.1.2057235629.1711178486&"
                 style="height: 35px">
             <div class="p-2 g-col-6 "></div>
+            <a style="padding: 10px ;color: rgb(170, 176, 182)" href="#" class="nav-link">
+                <h5>@yield('User')/</h5>
+            </a>
             <form action="{{ route('logout') }}" method="POST" class="d-flex  " role="search">
                 @csrf
                 @method('DELETE')
                 <button class="btn btn-danger" type="submit">Logout</button>
             </form>
-            <a style="padding: 10px ;color: rgb(170, 176, 182)" href="#" class="nav-link">
-                <h5>@yield('User')</h5>
-            </a>
+            
         </div>
         </div>
     </nav>
