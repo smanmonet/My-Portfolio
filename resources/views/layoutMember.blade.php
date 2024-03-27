@@ -105,7 +105,7 @@
             <li class="nav-item">
                 <div class="d-flex flex-row">
                     <i class="bi bi-receipt" style="font-size: 2rem; padding-right: 15px;"></i>
-                    <a href="#" class="nav-link"
+                    <a href="/History" class="nav-link"
                         style=" color: #44576D; font-size: 20px; font-family: Inter; font-weight: 700; "
                         aria-current="page">History</a>
                 </div>

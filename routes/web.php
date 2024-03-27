@@ -71,7 +71,7 @@ Route::get('order/{id}',[FinanceController::class,'updateStatus']);
 //earth
 Route::get('/homeAdmin',[HomeController::class,'indexAdmin']); 
 
-Route::post('/History',[HistoryController::class,'index'])->name('History.index');
+Route::get('/History',[HistoryController::class,'index'])->name('History.index');
 Route::get('History/info/{id}',[HistoryDetailController::class,'index'])->name('info');
 Route::post('Notification',[NotiController::class,'index'])->name('Notification.index'); 
 

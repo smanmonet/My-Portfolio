@@ -9,14 +9,15 @@ use App\Models\History;
 
 class HistoryController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
-        $memID = json_decode($request->memID);
+        $His_sec = session()->get('id');
+        $memID = $His_sec;
 
         $historyhead = DB::table('orders')
             ->select('orders.orderID', 'orders.date', 'orders.memberID', 'orders.status', 'member.Address')
             ->join('member', 'orders.memberID', '=', 'member.memberID')
-            ->where('orders.memberID', $request->memID)
+            ->where('orders.memberID',$memID)
             ->get();
         
         //$od = DB::table
@@ -27,10 +28,11 @@ class HistoryController extends Controller
             //->where('order.orderID',$historyhead['orderID'])
             //->where('member.memberID',$request->memID)
             ->get();
-            //$historybody['orderID'] =  
-           // dd($memID);
+            //$historybody['orderID'] = 
+            
+        // dd($historyhead);
         
-        return view('History', compact('historyhead', 'memID', 'historybody'));
+        return view('History', compact('historyhead', 'memID', 'historybody','His_sec'));
     }
 
 }
