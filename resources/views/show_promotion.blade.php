@@ -50,7 +50,7 @@
                                             <div class="btn-group">
                                                
                                                 <a
-                                                    href="{{route('info',$item->proID)}}" 
+                                                    href="{{route('promoinfo',$item->proID)}}" 
                                                     class="btn btn-sm btn-outline-secondary"
                                                     > Info
                                                 </a>

@@ -43,7 +43,7 @@ Route::get('/DeletePromotion', function () {
     return "<h1>Edit Pro</h1>";
 });
 Route::get('/Promotion/delete/{id}',[Promotion::class,'delete'])->name('delete');//kuy
-Route::get('/Promotion/info/{id}',[Promotion::class,'info'])->name('info');
+Route::get('/Promotion/info/{id}',[Promotion::class,'info'])->name('promoinfo');
 Route::post('/Promotion/confirm',[addPromotion::class,'confirm'])->name('submit.form');
 Route::post('/Promotion/confirmReal',[confirmPromotion::class,'confirmkub'])->name('confirm.form');
 //Order
@@ -66,7 +66,7 @@ Route::get('order/{id}',[FinanceController::class,'updateStatus']);
 Route::get('/homeAdmin',[HomeController::class,'indexAdmin']); 
 
 Route::post('/History',[HistoryController::class,'index'])->name('History.index');
-Route::get('/info/{id}',[HistoryDetailController::class,'index'])->name('info');
+Route::get('History/info/{id}',[HistoryDetailController::class,'index'])->name('info');
 Route::post('Notification',[NotiController::class,'index'])->name('Notification.index'); 
 
 Route::get('/login',[AuthUserController::class,'login'])->name('login');  
