@@ -27,7 +27,16 @@ class OrderController extends Controller
     {
         $sum = 0;
         $ses = session()->all();
-        $orders = DB::table('orders')->get();
-        return view('order', compact('orders', 'sum','ses'));
+
+        $value = session()->get("id");
+        $member = DB::table('member')->where('memberID', $value)->first();
+
+        
+
+        $values = session()->get("id");
+        $orders = DB::table('orders')->where('orderID', $values)->first();
+        //dd($member);
+        return view('order', compact('orders', 'sum','ses','member'));
+        
     }
 }

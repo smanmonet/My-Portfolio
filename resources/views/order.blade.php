@@ -17,23 +17,23 @@
                             <div class="d-flex flex-row justify-content-around card-body p-4">
 
                                 <div class="d-flex flex-column text-start">
-                                    <h7 class="fw-bolder">name</h7>
-                                    {{$ses['name']}}
+                                    <h7 class="fw-bolder">Name Surname</h7>
+                                    {{$member->Name}} {{$member->Surname}};
                                 </div>
                                 <div class="d-flex flex-column text-start">
-                                    <h7 class="fw-bolder">รหัสคำสั่งซื้อ</h7>
-                                    sman106
+                                    <h7 class="fw-bolder">OrderID</h7>
+                                    
                                 </div>
                                 <div class="d-flex flex-column text-start">
-                                    <h7 class="fw-bolder">วันที่สั่งซื้อ</h7>
+                                    <h7 class="fw-bolder">Date</h7>
                                     <?php
                                     $day = date('d m Y');
                                     echo "$day";
                                     ?>
                                 </div>
                                 <div class="d-flex flex-column text-start">
-                                    <h7 class="fw-bolder">ที่อยู่</h7>
-                                    มหาวิทยาลัยเกษตรศาสตร์ วิทยาเขตกำแพงแสน
+                                    <h7 class="fw-bolder">Address</h7>
+                                    {{$member->Address}};
                                 </div>
 
                             </div>
