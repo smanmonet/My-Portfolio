@@ -28,11 +28,18 @@ class HomeController extends Controller
             ->where('role.empID',$request->userID)
             ->get();
 
+
+        //$value = session()->get("id");
+        //dd($value);
+        
+
         return view('HomeMember',compact('member','role'));
     }
 
      public function search(Request $request){
-        $UserID = 2;
+        $value = session()->get("id");
+        //dd($value);
+        $UserID = $value;
         $role = QueryBuilder::for(Role::class)
             ->leftJoin('roletype','role.roletypeID','=','roletype.roletypeID')
             ->where('role.empID',$UserID)

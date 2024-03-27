@@ -32,7 +32,9 @@ class AuthUserController extends Controller
         //dd($member);
         session(['id'=>$member->memberID]);
         session(['name'=>$member->Name]);
-        //dd($request->session()->all());
+        $value = session()->get("id");
+        
+        dd($value);
         //dd($members);
         if ($member === null) {
             return redirect('/login')->with('error', 'Invalid member credentials.');

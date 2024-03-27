@@ -38,6 +38,11 @@ class AuthAdminController extends Controller
                     ->get();
         
         $memID = $em->employeeID;
+
+        session(['id'=>$memID]);
+        //session(['name'=>$member->Name]);
+        $value = session()->get("id");
+        //dd($value);
         //dd($memID);
         if ($admin === null) {
             return redirect('/login')->with('error', 'Invalid member credentials.');

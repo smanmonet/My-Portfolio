@@ -31,8 +31,10 @@ class FinanceController extends Controller
         ->get();
 
 
-
-        $UserID = 2;
+        $value = session()->get("id");
+        //dd($value);
+        $UserID = $value;
+        //$UserID = 2;
         $role = QueryBuilder::for(Role::class)
             ->leftJoin('roletype','role.roletypeID','=','roletype.roletypeID')
             ->where('role.empID',$UserID)
@@ -41,11 +43,13 @@ class FinanceController extends Controller
         return view('finance',compact('role','orders'));
     }
     public function updateStatus(int $orderID){  //$userID ต้องเป็นuserID
-       
+        $value = session()->get("id");
+        //dd($value);
+        $UserID = $value;
        Finance::findOrFail($orderID)
        ->update([
         'status' => "สำเร็จ",
-        'empID' => "1",
+        'empID' => $UserID,
         //'empID' => $empID,
     ]);
       return back();

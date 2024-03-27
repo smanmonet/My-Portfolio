@@ -368,7 +368,7 @@ table.table td i {
           var id = $(this).val(); // get selected value
           if (id==1) { window.location = "/Finance"; }
           else if(id==2){ }
-          else if(id==3){ }
+          else if(id==3){window.location = "/stock_store";}
           else if(id==4){window.location = "/HomeMembers";}
           return false;
       });
