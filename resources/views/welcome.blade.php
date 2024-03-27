@@ -32,11 +32,9 @@
                         <button type="submit" class="nav-link active" aria-current="page">History</button>
                     </form>
                 </div>
-
             </div>
             <div class="d-flex flex-row justify-content-between card-footer p-4  border-top-0 bg-transparent"
                 style="text-align: right">
-
                 <img src="https://cdn-icons-png.freepik.com/256/6022/6022876.png" style="height: 40px">
                 <div style="color: aliceblue ;">
                     </div>
@@ -53,7 +51,11 @@
                 <a style="padding: 10px ;color: rgb(170, 176, 182)" href="#" class="nav-link">
                     <h5>User</h5>
                 </a>
-
+                <form action="{{ route('logout') }}" method="POST" class="d-flex" role="search">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn btn-danger" type="submit">Logout</button>
+                </form>
             </div>
 
         </div>
