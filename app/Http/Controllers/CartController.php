@@ -35,6 +35,8 @@ class CartController extends Controller
         $sumQty = 0;
         //$request->session()->flush();
         $ses = session()->all();
+        //session()->get("id");
+        //dd($ses);
         return view('cart',compact('sumP','sumQty','ses'));
     }
     public function deleteCart(Request $request){

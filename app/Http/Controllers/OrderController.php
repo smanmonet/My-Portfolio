@@ -26,8 +26,8 @@ class OrderController extends Controller
     public function index(Request $request)
     {
         $sum = 0;
-
+        $ses = session()->all();
         $orders = DB::table('orders')->get();
-        return view('order', compact('orders', 'sum'));
+        return view('order', compact('orders', 'sum','ses'));
     }
 }

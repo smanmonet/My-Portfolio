@@ -18,7 +18,7 @@
 
                                 <div class="d-flex flex-column text-start">
                                     <h7 class="fw-bolder">name</h7>
-                                    akmanrisal@ku.th
+                                    {{$ses['name']}}
                                 </div>
                                 <div class="d-flex flex-column text-start">
                                     <h7 class="fw-bolder">รหัสคำสั่งซื้อ</h7>
