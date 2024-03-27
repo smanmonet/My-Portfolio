@@ -29,6 +29,7 @@ class AuthAdminController extends Controller
         $member = QueryBuilder::for(Member::class)
             ->leftJoin('rank', 'member.rank', '=', 'rank.rankID')
             ->get();
+            
         $admin = Admin::where('userID', $credentials['emailAdmin'])->first();
         $admins = DB::table('employee')->where('userID', $request->userID)->first();
 
