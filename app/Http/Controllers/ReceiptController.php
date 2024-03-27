@@ -19,20 +19,20 @@ class ReceiptController extends Controller
         ->join('promotion as pro', 'promotiondetail.promotionID', '=', 'pro.proID')
         ->where('pro.proID', $proID)
         ->get();
-
+        // dd("$promotions");
         $promotion=DB::table('promotiondetail')
         ->join('product', 'promotiondetail.productID', '=', 'product.productID')
         ->join('promotion as pro', 'promotiondetail.promotionID', '=', 'pro.proID')
         ->where('pro.proID', $proID)
         ->first();
-
+        $v = $promotion->promotionname;
         $SUM=DB::table('promotiondetail')//ผลรวมราคาสินค้าใน promotion
         ->join('product', 'promotiondetail.productID', '=', 'product.productID')
         ->join('promotion as pro', 'promotiondetail.promotionID', '=', 'pro.proID')
         ->where('pro.proID', $proID)
         ->sum('product.price');
-
-        return view('receipt',compact('promotions','promotion','SUM','orderID','date'));
+        //dd("$SUM");
+        return view('receipt',compact('promotions','promotion','v','SUM','orderID','date'));
     }
     public function upload(Request $request)
     {

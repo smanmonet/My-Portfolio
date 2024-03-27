@@ -64,9 +64,9 @@
                         <!--PROMOTION RECEIPT-->
                         <div class="d-flex flex-column justify-content-start card-body p-4" >
                             <div class="d-flex flex-column text-start" style="margin-left:40px">
-                                <h7 class="fw-bolder">Promotion ( {{$promotions->promotionname}} )</h7>
+                                <h7 class="fw-bolder">Promotion ( {{$v}} )</h7>
                             </div>
-                            @foreach ($promotion as $pro)
+                            @foreach ($promotions as $pro)
                                 <div class="d-flex flex-row justify-content-between" style="margin-left:40px;margin-top:15px;"> 
                                     <div>
                                         {{$pro->productname}} x 1
@@ -84,7 +84,7 @@
                                  <h7 class="fw-bolder">ยอดรวม</h7>
                             </div>
                             <div style="margin-right:60px;">
-                                <span style=" color:red; text-decoration: line-through;">{{$SUM}} บาท</span> > {{$promotions->price_pro}} บาท
+                                <span style=" color:red; text-decoration: line-through;">{{$SUM}} บาท</span> > {{$promotion->price_pro}} บาท
                             </div>
                         </div>
                         <!--EVIDENCE RECEIPT-->
@@ -103,7 +103,7 @@
                         <div class="d-flex flex-row justify-content-between card-footer p-4  border-top-0 bg-transparent" style="">
                             
                             <div style="margin-left:40px;" class="text-center">
-                                <form action="{{ route('upload.image') }}" method="post" enctype="multipart/form-data">
+                                <form action="{{ route('upload.receipt') }}" method="post" enctype="multipart/form-data">
                                     @csrf
                                     <input type="file" name="image">
                                     <button type="submit">Upload</button>
