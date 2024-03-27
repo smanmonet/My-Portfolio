@@ -43,7 +43,7 @@
                     </div>
                     <div class="card-body">
                         <div class="d-grid mb-3">
-                            <button class="btn btn-primary"><a href="/HomeHRs" class="text-white text-decoration-none">Let's go</a></button>
+                            <button class="btn btn-primary"><a href="/HomeHR" class="text-white text-decoration-none">Let's go</a></button>
                         </div>
                     </div>
                 </div>
