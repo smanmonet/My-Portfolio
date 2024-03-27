@@ -13,7 +13,7 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="font-awesome/css/font-awesome.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    
+
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -43,7 +43,7 @@
 
             </div>
         </div>
-        <div class="d-flex flex-row justify-content-between card-footer p-4  border-top-0 bg-transparent"
+        <div class="d-flex flex-row justify-content-between card-footer p-4  border-top-0 bg-transparent  "
             style="text-align: right">
             <img src="https://cdn-icons-png.freepik.com/256/6022/6022876.png" style="height: 40px">
             <div style="color: aliceblue ;">
@@ -58,7 +58,12 @@
             </a>
             <img src="https://cdn-icons-png.freepik.com/256/6380/6380297.png?ga=GA1.1.2057235629.1711178486&"
                 style="height: 35px">
-            <a class="navbar-brand" href="/">Logout</a>
+            <div class="p-2 g-col-6 "></div>
+            <form action="{{ route('logout') }}" method="POST" class="d-flex  " role="search">
+                @csrf
+                @method('DELETE')
+                <button class="btn btn-danger" type="submit">Logout</button>
+            </form>
             <a style="padding: 10px ;color: rgb(170, 176, 182)" href="#" class="nav-link">
                 <h5>@yield('User')</h5>
             </a>
