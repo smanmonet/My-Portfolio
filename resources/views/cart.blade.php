@@ -14,7 +14,7 @@
                         <div class="col m-0 " style="width:1000px;">
                             <div class="d-flex card h-50" style="border-radius:20px;">
 
-                                <img src="..." class="rounded mx-auto d-block" alt="...">
+                                <img src="{{ url('images/' . $details['image']) }}" class="rounded mx-auto d-block" alt="...">
                                 <div class="d-flex flex-row justify-content-around card-body p-4">
 
                                     <h4 class="card-title">{{ $details['name'] }}</h4>

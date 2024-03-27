@@ -11,7 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
     @foreach ($products as $item)
         <div class="card">
-            <img src="{{ $item->image }}" class="rounded mx-auto d-block" alt="...">
+            <img src="{{ url('images/' . $item->image) }}" class="rounded mx-auto d-block" alt="...">
 
             <div class="card-body">
                 <h5 class="card-title">{{ $item->productname }}</h5><br>

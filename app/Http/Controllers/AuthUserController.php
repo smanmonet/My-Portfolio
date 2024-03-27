@@ -41,7 +41,7 @@ class AuthUserController extends Controller
 
         if ($request->loginPass === $member->loginPass) {
         //dd($members);
-            return view ('welcome', compact('members'))->with('success', 'Login berhasil!');
+            return view ('StartMember', compact('members'))->with('success', 'Login berhasil!');
         } else {
             return redirect('/login')->with('error', 'Invalid password.');
         }  

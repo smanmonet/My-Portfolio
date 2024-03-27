@@ -16,10 +16,8 @@
 
 <body>
     {{-- data-bs-theme="dark" --}}
-    <nav class="navbar navbar-expand-lg"  style=" background: #25393C">
+    <nav class="navbar navbar-expand-lg" style=" background: #25393C">
         <div class="container-fluid">
-         
-
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -31,8 +29,6 @@
                     <a class="nav-link" href="/product">Product</a>
                     <a class="nav-link" href="/group">Group</a>
                     <a class="nav-link" href="#">History</a>
-                    
-                    
                 </div>
             </div>
             <div class="d-flex flex-row justify-content-between card-footer p-4  border-top-0 bg-transparent"
@@ -50,7 +46,7 @@
                 </a>
                 <img src="https://cdn-icons-png.freepik.com/256/6380/6380297.png?ga=GA1.1.2057235629.1711178486&"
                     style="height: 35px">
-                    <a class="navbar-brand" href="/">Logout</a>
+                <a class="navbar-brand" href="/">Logout</a>
                 <a style="padding: 10px ;color: rgb(170, 176, 182)" href="#" class="nav-link">
                     <h5>@yield('User')</h5>
                 </a>

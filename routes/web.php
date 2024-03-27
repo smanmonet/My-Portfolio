@@ -23,14 +23,16 @@ use App\Http\Controllers\GroupController;
 Route::get('/', function () {
     return view('UserOrAdmin');
 });
+//emp
+Route::get('/HomeHR', function () {
+    return view('HomeHR');
+});
 //ProductMem,Cart
 Route::get('/welcome', function () {
     $ses = session()->all();
     //dd($ses);
     return view('welcome',compact('ses'));
 });
-
-
 Route::get('product',[ProductController::class,'index'])->name('product');
 Route::get('cart/{productID}',[CartController::class,'addToCart'])->name('cartAdd');
 Route::get('cart',[CartController::class,'index'])->name('cart');
