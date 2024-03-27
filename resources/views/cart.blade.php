@@ -1,8 +1,11 @@
 @extends('layoutMember')
-@section('title', 'Product')
-@section('User', $ses['name'])
+@section('title', 'Cart')
+
 @section('content')
     <tbody>
+        <h2 class="my-5">
+            <center>Cart</center>
+        </h2>
         @if (session('cart'))
             @foreach (session('cart') as $productID => $details)
                 <div class="d-flex justify-content-center">
