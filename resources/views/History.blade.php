@@ -1,5 +1,6 @@
 @extends('layoutMember')
 @section('title', 'Promotion')
+@section('User', $His_name['name'])
 @section('content')
 <html lang="en">
 

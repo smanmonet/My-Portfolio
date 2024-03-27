@@ -12,6 +12,7 @@ class HistoryController extends Controller
     public function index()
     {
         $His_sec = session()->get('id');
+        $His_name = session()->all();
         $memID = $His_sec;
 
         $historyhead = DB::table('orders')
@@ -29,10 +30,8 @@ class HistoryController extends Controller
             //->where('member.memberID',$request->memID)
             ->get();
             //$historybody['orderID'] = 
-            
-        // dd($historyhead);
-        
-        return view('History', compact('historyhead', 'memID', 'historybody','His_sec'));
+
+        return view('History', compact('historyhead', 'memID', 'historybody','His_sec','His_name'));
     }
 
 }
