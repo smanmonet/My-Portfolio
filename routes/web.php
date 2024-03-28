@@ -101,4 +101,4 @@ Route::get('/promotions', [PromotionController::class,'promotion'])->name('promo
 Route::get('/receipt/{proID}', [ReceiptController::class,'receipt'])->name('receipt');
 Route::post('/upload/receipt', [ReceiptController::class,'upload'])->name('upload.receipt');
 Route::post('/group', [GroupController::class,'group'])->name('group');
-
+Route::post('/group/refresh', [GroupController::class,'refresh'])->name('refresh');

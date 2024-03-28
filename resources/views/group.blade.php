@@ -37,6 +37,12 @@
                 <div class="d-flex flex-row" style="gap:12px;">
                     PV รวมทั้งหมด  <div style="color: red;"> {{$allpv}} </div> points
                 </div>
+                <form action="{{ route('refresh') }}" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <input type="hidden" name="allpv" value="{{ json_encode($allpv) }}">
+                    <input type="hidden" name="mempv" value="{{ json_encode($member->PV) }}">
+                    <div style="margin-right:40px" class="text-center"><button class="btn btn-outline-dark mt-auto" type="submit">ห้ามกด!!</button></div>
+                </form>
                 <div style="margin: 25px;margin-top: 45px; margin-right:50%;font-size: 32px">
                     สมาชิกในกลุ่ม
                 </div>

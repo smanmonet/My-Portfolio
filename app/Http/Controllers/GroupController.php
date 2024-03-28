@@ -34,5 +34,24 @@ class GroupController extends Controller
         //dd($alldownline);
         return view('group',compact('alldownline','allpv','ordinal','member'));
     }
+    function refresh(Request $request){
+        $allpv = json_decode($request->allpv);
+        $mempv = json_decode($request->mempv);
+        $downPV = $allpv - $mempv;
+        $value = session()->get("id");
+        $member = DB::table('member')->where('memberID', $value)->first();
+        $date = now()->toDateString();
+        //dd($allpv);
+        $datahistory=[
+            'memID'=>$member->memberID,
+            'PV'=>$allpv,
+            'Date'=>$date,
+            'PV_down'=>$downPV,
+            'rank'=>$member->rank
+        ];
+        DB::table('pv_history')->insert($datahistory);
+        DB::table('member')->update(['PV' => 0]);
+        return redirect('promotions');
+    }
     
 }

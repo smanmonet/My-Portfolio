@@ -38,6 +38,8 @@ class ReceiptController extends Controller
     }
     public function upload(Request $request)
     {
+        $value = session()->get("id");
+        $member = DB::table('member')->where('memberID', $value)->first();
         $request->validate(
             [
                 'image'=>'required',
@@ -54,7 +56,7 @@ class ReceiptController extends Controller
         $dataOrder=[
             'orderID'=>$orderID,
             'date'=>$date,
-            'memberID'=>NULL,//รอระบบ authenticate
+            'memberID'=>$member->memberID,//รอระบบ authenticate
             'status'=>NULL,
             'empID'=>NULL,
             'image'=>$imageName
