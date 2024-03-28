@@ -8,16 +8,27 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
-
+use Spatie\QueryBuilder\QueryBuilder;
+use App\Models\Role;
 class addPromotion extends Controller
 {
     public function index()
     {
+        $value = session()->get("id");
+        $role = QueryBuilder::for(Role::class)
+        ->leftJoin('roletype','role.roletypeID','=','roletype.roletypeID')
+        ->where('role.empID',$value)
+        ->get();
         $emp = DB::table('product')->get();
-        return view('addPromotion',compact('emp'));
+        return view('addPromotion',compact('emp','role','value'));
     }
     public function confirm(Request $request)
     {
+        $value = session()->get("id");
+        $role = QueryBuilder::for(Role::class)
+        ->leftJoin('roletype','role.roletypeID','=','roletype.roletypeID')
+        ->where('role.empID',$value)
+        ->get();
         $request->validate([
             'PromotionName'=>'required|max:50',
             'Price'=>'required',
@@ -56,9 +67,8 @@ class addPromotion extends Controller
         $data = $request->all();
         $data['productIDs'] = $productIDs;
         $data['productNames'] = $productNames;
+        $formData = $data;
         //dd($data);
-        return view('confirmPromotion')->with([
-            'formData'=> $data,
-    ]);
+        return view('confirmPromotion',compact('role','value','formData'));
     }
 }

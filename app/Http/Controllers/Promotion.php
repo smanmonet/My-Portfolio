@@ -32,8 +32,14 @@ class Promotion extends Controller
     function info($id){
         $PromoInfo=DB::table('promotion')->where('proID',$id)->first();
         $PdInfo=DB::table('infodetail')->where('promotionID',$id)->get();
+        $emp = DB::table('promotion')->get();
+        $value = session()->get("id");
+        $role = QueryBuilder::for(Role::class)
+        ->leftJoin('roletype','role.roletypeID','=','roletype.roletypeID')
+        ->where('role.empID',$value)
+        ->get();
         //dd($PdInfo);
         //dd($PdInfo);
-        return view('infoPromotion',compact('PromoInfo','PdInfo'));
+        return view('infoPromotion',compact('PromoInfo','PdInfo','role','value'));
     }
 }

@@ -9,13 +9,21 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Session;
+use Spatie\QueryBuilder\QueryBuilder;
+use App\Models\Role;
 class confirmPromotion extends Controller
 {
     
     public function index()
     {
+        $emp = DB::table('promotion')->get();
+        $value = session()->get("id");
+        $role = QueryBuilder::for(Role::class)
+        ->leftJoin('roletype','role.roletypeID','=','roletype.roletypeID')
+        ->where('role.empID',$value)
+        ->get();
         $emp = DB::table('product')->get();
-        return view('confirmPromotion',compact('emp'));
+        return view('confirmPromotion',compact('emp','role','value'));
     }
     public function confirmkub(Request $request)
     {
