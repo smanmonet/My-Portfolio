@@ -26,8 +26,7 @@
                                     <div class="text-center">
                                         <!-- Product name-->
                                         <div>{{ $pro->promotionname }}</div>
-                                        <!-- Product price-->
-                                        {{ $pro->price_pro }} บาท
+                                        
                                     </div>
                                 </div>
                                 <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
