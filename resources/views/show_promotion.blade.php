@@ -1,4 +1,4 @@
-@extends('layoutpromo')
+@extends('layoutStock')
 @section('content')
     
 
@@ -22,9 +22,9 @@
               <div class="row py-lg-5">
                 <div class="col-lg-6 col-md-8 mx-auto">
                   <h1 class="fw-light">Promotion Manage</h1>
-                  <p class="lead text-body-secondary">ต้องการจะสร้างโปรโมชั่นใช่มั้ยไอ่เวร คว</p>
+                  <p class="lead text-body-secondary">จัดการโปรโมชั่น</p>
                   <p>
-                    <a href="{{route('addPromotion')}}" class="btn btn-primary my-2">สร้างโปรโมชั่นไอโง่</a>
+                    <a href="{{route('addPromotion')}}" class="btn btn-primary my-2">Create Promotion</a>
                   </p>
                 </div>
               </div>
@@ -37,11 +37,8 @@
                             @foreach($emp as $item)
                             <div class="col order-sm-last"> <!-- ใช้ order-sm-last เพื่อให้แสดงทางขวาในหน้าจอขนาดเล็กขึ้น -->
                                 <div class="card shadow-sm">
-                                    <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                                        <title>Placeholder</title>
-                                        <rect width="100%" height="100%" fill="#55595c"></rect>
-                                        <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-                                    </svg>
+                                    <img src="{{ url('images/' . $item->image) }}"
+                                                            class="rounded mx-auto d-block" alt="...">
                                     <div class="card-body">
                                         <p class="card-text">
                                             <h1>{{$item->promotionname}}</h1>

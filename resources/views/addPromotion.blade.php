@@ -1,4 +1,4 @@
-@extends('layoutpromo')
+@extends('layoutStock')
 @section('content')
     <!DOCTYPE html>
     <html lang="en">
@@ -23,7 +23,7 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-6 col-md-12">
                         <h1 class="fw-light">Add Promotion</h1>
-                        <p class="lead text-body-secondary">ต้องการจะสร้างโปรโมชั่นใช่มั้ยไอ่เวร คว</p>
+                        <p class="lead text-body-secondary">Create Promotion</p>
                         <form class="needs-validation" novalidate="" action="{{ route('submit.form') }}" method="POST">
                             @csrf
                             @error('product')
@@ -105,12 +105,8 @@
                                                 <div class="col order-sm-last">
                                                     <!-- ใช้ order-sm-last เพื่อให้แสดงทางขวาในหน้าจอขนาดเล็กขึ้น -->
                                                     <div class="card shadow-sm">
-
                                                         <img src="{{ url('images/' . $item->image) }}"
                                                             class="rounded mx-auto d-block" alt="...">
-
-
-
                                                         <div class="card-body .bg-light">
                                                             <p class="card-text">
                                                             <h1>{{ $item->productname }}</h1>

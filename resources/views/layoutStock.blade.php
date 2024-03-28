@@ -76,10 +76,12 @@ nav a:hover{
     color: #112b48;
 }
 nav .second-nav{
+    
     list-style: none;
     display: flex;
     align-items: center;
     margin-left: 80px;
+    
 }
 .second-nav li{
     padding: 15px 10px;
