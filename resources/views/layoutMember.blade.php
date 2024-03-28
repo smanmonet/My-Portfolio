@@ -49,7 +49,7 @@
             <div style="color: aliceblue ;">
             </div>
             @if (count((array) session('cart')) != 0)
-                <span class="text-primary-emphasis">{{ count((array) session('cart')) }}</span>
+                <span class="text-white">{{ count((array) session('cart')) }}</span>
             @else
                 <span></span>
             @endif
