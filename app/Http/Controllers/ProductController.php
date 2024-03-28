@@ -13,13 +13,15 @@ use Illuminate\Support\Facades\Validator;
 class ProductController extends Controller
 
 {
-    public function index()
+    public function index(Request $request)
     {
-        //dd(session()->all());
-        //dd($request->session()->all());
         $ses = session()->all();
         $products = DB::table('product')->get();
-        return view('product', compact('products','ses'));
+        $search = $request->search;
+        $products = DB::table('product')
+            ->where('productname', 'LIKE', "%$search%")
+            ->get();
+        return view('product', compact('products', 'ses'));
     }
     public function stock()
     {

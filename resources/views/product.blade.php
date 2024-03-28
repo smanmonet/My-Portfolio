@@ -9,6 +9,12 @@
             {{ session('success') }}
         </div>
     @endif
+    <div class="container-fluid">
+        <form class="d-flex" action="{{ route('product') }}" method="GET">
+            <input name="search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+    </div><br>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
     <section class="py-5">
         <div class="container px-4 px-lg-5 mt-5">
