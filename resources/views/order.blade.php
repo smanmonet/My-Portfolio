@@ -54,9 +54,7 @@
                                         @foreach (session('cart') as $productID => $details)
                                             @csrf
                                             <div class="row g-3">
-                                                <div class="d-flex flex-row justify-content-around card-body p-4">
-                                                <div class="col-12">
-                                                   
+                                                <div class="d-flex flex-row justify-content-around card-body p-4">                                                                                          
                                                     <div class="d-flex flex-column text-start"style="margin-left:40px">
                                                         <label for="name" class="form-label">ชื่อสินค้า</label>
                                                         <div class="input-group has-validation">
