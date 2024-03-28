@@ -28,12 +28,17 @@ class ProductController extends Controller
     
         return view('product', compact('products', 'ses')); 
     }
-    public function stock()
+    public function stock(Request $request)
     {
-        
+        $search = $request->input('search');
+
         $products = DB::table('product')
         ->select('product.*', DB::raw('SUM(orderproduct.quantity) as stock_quantity'))
         ->leftJoin('orderproduct', 'product.productID', '=', 'orderproduct.productID')
+        ->where(function ($query) use ($search) {
+            $query->where('product.productname', 'like', '%' . $search . '%')
+            ->orWhere('product.productID', 'like', '%' . $search . '%');
+        })
         ->groupBy('product.productID', 'product.productname' , 'product.price', 'product.quantity', 'product.Min', 'product.PVPercent', 'product.image')
         ->get();
         return view('stock_store', compact('products'));

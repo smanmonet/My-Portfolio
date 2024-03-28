@@ -1,13 +1,33 @@
-@extends('layoutMember')
+@extends('layoutStock')
 @section('title', 'Stock')
 @section('content')
 <div class="container">
-    <h1>Items</h1>
-    <div class="row justify-content-end mb-3">
-    <div class="col-auto">
-        <a href="/products/create" class="btn btn-success">Add New Item</a>
-    </div>
+     <!-- link page -->
+<div class="menu-bar">
+    <ul class="menu-list">
+        <li><a href="/stock_store" class="menu-item item-selected">Store</a></li>
+        <li><a href="/Promotion" class="menu-item">Promotion</a></li>
+    </ul>
 </div>
+ <!-- link page -->
+    <div class="row justify-content-between mb-3">
+        <div class="col-auto">
+            <h1>Items</h1>
+        </div>
+    </div>
+    <div class="row justify-content-between mb-3">
+        <div class="col-auto">
+        <form action="{{ route('stock_store') }}" method="GET" class="mb-3">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search..." name="search">
+                    <button class="btn btn-outline-secondary" type="submit">Search</button>
+                </div>
+        </form>   
+        </div>
+        <div class="col-auto">
+        <a href="/products/create" class="btn btn-success">Add New Item</a>
+        </div>
+    </div>
 
     <table class="table table-hover table-primary">
         <thead>
@@ -28,8 +48,8 @@
             @foreach ($products as $item)
             <tr>
                 <td>
-                <img style= "width: 100px; height: 100px;"
-                src="{{ url('images/' . $item->image) }}" alt="Your Image">
+                    <img style="width: 100px; height: 100px;"
+                         src="{{ url('images/' . $item->image) }}" alt="Your Image">
                 </td>
                 <td>{{ $item->productID }}</td>
                 <td>{{ $item->productname }}</td>
@@ -40,43 +60,39 @@
                     @if($item->quantity == 0)
                         Out of Stock
                     @elseif($item->quantity <= $item->Min)
-                    Almost
+                        Almost
                     @else
-                    In Stock
+                        In Stock
                     @endif
                 </td>
                 <td><a href="/product/{{ $item->productID }}/edit" class="btn btn-primary">Edit</a></td>
                 <td><button type="button" class="btn btn-danger" onclick="openDeleteModal({{ $item->productID }})">Delete</button></td>
-
-
             </tr>
             @endforeach
         </tbody>
     </table>
     <!-- Modal -->
-        <div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+    <div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="confirmDeleteModalLabel">Confirm Delete</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                Are you sure you want to delete this product?
-            </div>
-            <div class="modal-footer">
-                <form id="deleteForm" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-danger">Delete</button>
-                </form>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-            </div>
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmDeleteModalLabel">Confirm Delete</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to delete this product?
+                </div>
+                <div class="modal-footer">
+                    <form id="deleteForm" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                </div>
             </div>
         </div>
-        </div>
-
-
+    </div>
 </div>
 <script>
     function openDeleteModal(productId) {

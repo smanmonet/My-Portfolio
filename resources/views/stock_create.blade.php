@@ -1,4 +1,4 @@
-@extends('layoutMember')
+@extends('layoutStock')
 @section('title', 'Stock_Edit')
 @section('content')
 <div class="container">
