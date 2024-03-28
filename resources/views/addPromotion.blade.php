@@ -109,8 +109,8 @@
                                                             class="rounded mx-auto d-block" alt="...">
                                                         <div class="card-body .bg-light">
                                                             <p class="card-text">
-                                                            <h1>{{ $item->productname }}</h1>
-                                                            <h1>{{ $item->productID }}</h1>
+                                                            <h4>{{ $item->productname }}</h4>
+                                                            
                                                             <div class="form-check">
                                                                 <input type="checkbox" class="form-check-input"
                                                                     id="{{ $item->productname }}" name="product[]"
@@ -121,13 +121,7 @@
 
                                                             </p>
                                                             <div class="d-flex justify-content-between align-items-center">
-                                                                <div class="btn-group">
-                                                                    <button type="button"
-                                                                        class="btn btn-sm btn-outline-secondary">View</button>
-                                                                    <button type="button"
-                                                                        class="btn btn-sm btn-outline-secondary">Edit</button>
-                                                                </div>
-                                                                <small class="text-body-secondary">9 mins</small>
+                                                                
                                                             </div>
                                                         </div>
                                                     </div>
