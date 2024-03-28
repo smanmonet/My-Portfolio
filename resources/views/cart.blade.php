@@ -1,6 +1,8 @@
 @extends('layoutMember')
 @section('title', 'Cart')
-@section('User', $ses['name'])
+@if(isset($ses['name']))
+    @section('User', $ses['name'])
+@endif
 @section('content')
     <tbody>
         <h2 class="my-5">
