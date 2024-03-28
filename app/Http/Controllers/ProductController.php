@@ -16,12 +16,17 @@ class ProductController extends Controller
     public function index(Request $request)
     {
         $ses = session()->all();
-        $products = DB::table('product')->get();
         $search = $request->search;
         $products = DB::table('product')
             ->where('productname', 'LIKE', "%$search%")
             ->get();
-        return view('product', compact('products', 'ses'));
+        //return view('product', compact('products', 'ses'));
+        if($products->isEmpty()) {
+            $message = "ไม่พบสินค้าที่คุณค้นหา";
+            return view('product', compact('message', 'ses'));
+        }
+    
+        return view('product', compact('products', 'ses')); 
     }
     public function stock()
     {
