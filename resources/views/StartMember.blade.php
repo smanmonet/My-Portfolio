@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Let's go</title>
+    <title>Let's Go</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <style>
         body {
-            background-color: #f8f9fa;
+            background-color: #aedbff; /* สีฟ้าอ่อน */
         }
         .card {
             border: none;
@@ -26,6 +26,7 @@
         .btn-primary {
             background-color: #007bff;
             border-color: #007bff;
+            width: 100%;
         }
         .btn-primary:hover {
             background-color: #0056b3;
@@ -39,11 +40,12 @@
             <div class="col-lg-4">
                 <div class="card">
                     <div class="card-header text-center">
-                        <h1 class="card-title">Hello User</h1>
+                        <h1 class="card-title">Hello, User!</h1>
                     </div>
                     <div class="card-body">
-                        <div class="d-grid mb-3">
-                            <button class="btn btn-primary"><a href="/welcome" class="text-white text-decoration-none">Let's go</a></button>
+                        <p class="text-center">Welcome to our website. Let's start exploring!</p>
+                        <div class="d-grid">
+                            <a href="/welcome" class="btn btn-primary">Let's Go</a>
                         </div>
                     </div>
                 </div>
