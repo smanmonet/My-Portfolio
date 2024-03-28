@@ -11,7 +11,7 @@
 
         <div class="d-flex justify-content-center">
             <div class=" justify-content-center align-items-end" style="padding-top:10px">
-                <form class="needs-validation" novalidate="" action="{{ route('confirm') }}"method="POST">
+                <form class="needs-validation" novalidate="" action="{{ route('confirm') }}"method="POST" enctype="multipart/form-data">
                     <div class="col m-0 " style="width:1000px;">
                         <div class="d-flex card h-50" style="border-radius:20px;">
                             <div class="d-flex flex-row justify-content-around card-body p-4">
@@ -146,14 +146,9 @@
                                 style="">
 
 
-                                <div>
-                                    <form action="upload.php" method="post" enctype="multipart/form-data">
-                                      
-                                        @csrf
-                                        <input type="file" name="image">
-                                        <button type="submit">Upload</button>
-                                        
-                                    </form>
+                                <div class="form-group">
+                                    <label for="image">Image</label>
+                                    <input type="file" id="image" name="image" class="form-control-file">
                                 </div>
 
                                 <div style="margin-right:40px" class="text-center">
