@@ -66,6 +66,6 @@ class ReceiptController extends Controller
             'promotionID'=>$promotionID->proID
         ];
         DB::table('orderpromotion')->insert($dataOrderPromotion);
-        return redirect('promotion');
+        return redirect('promotions');
     }
 }
