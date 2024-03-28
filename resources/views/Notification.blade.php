@@ -1,5 +1,6 @@
 @extends('layoutMember')
 @section('title', 'Notification')
+@section('User', $noti_name['name'])
 @section('content')
     <html lang="en">
 
