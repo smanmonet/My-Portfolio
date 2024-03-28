@@ -13,7 +13,9 @@ class ConfirmOrder extends Controller
 {
 
     public function confirm(Request $request)
-    {
+    {   
+        $value = session()->get("id");
+        $member = DB::table('member')->where('memberID', $value)->first();
 
         $data = [
             'productID' => $request->productID,
@@ -24,14 +26,14 @@ class ConfirmOrder extends Controller
         
     
         $orderData = [
-            'date' => now(),
-            'memberID' => 1015,
+            'date' => rand(100000,999999),
+            'memberID' => $member->memberID,
             'status' => 'รอตรวจสอบ',
             'empID' => 1,
             'image' => null
         ];
 
-
+        dd($orderData);
         $orderId = DB::table('orders')->insertGetId($orderData);
 
 

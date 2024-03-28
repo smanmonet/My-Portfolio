@@ -22,7 +22,7 @@
                                 </div>
                                 <div class="d-flex flex-column text-start">
                                     <h7 class="fw-bolder">OrderID</h7>
-                                    
+                                    <?php echo rand(100000,999999); ?>
                                 </div>
                                 <div class="d-flex flex-column text-start">
                                     <h7 class="fw-bolder">Date</h7>
