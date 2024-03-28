@@ -13,15 +13,15 @@ class NotiController extends Controller
         $noti_name = session()->all();
         $value = session()->get("id");
         $percent = 0;
-
+        $money=array();
         $noti_pv = DB::table('pv_history')->get('PV_down');
+        
         $noti = DB::table('pv_history')->get();
 
         
         $noti_money_int = $noti_pv->map(function ($item) {
             return (int)$item->PV_down;
         });
-
         foreach ($noti_money_int as $item) {
             if ($item > 5000 && $item < 14999) {
                 $percent = 0.06;
@@ -36,9 +36,8 @@ class NotiController extends Controller
             } elseif ($item > 150000) {
                 $percent = 0.21;
             }
+            array_push($money,$item*$percent*3);
         }
-        //dd($noti_date);
-        $money = $percent * $item * 3;
         
         return view('Notification', compact('money', 'noti_name','noti_pv','noti'));
     }

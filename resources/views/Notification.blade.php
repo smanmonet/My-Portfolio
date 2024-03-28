@@ -15,6 +15,9 @@
         <h1></h1>
         <h2>การเเจ้งเตือน</h1>
             <h1></h1>
+            @php
+                $x=0;
+            @endphp
             @foreach ($noti as $n)
                 <table class="table">
                     <section class="py-2">
@@ -25,11 +28,14 @@
                             <div class="card-body">
                                 <p class="card-title">เมื่อวันที่ {{ $n->Date }} ทางบริษัท Supermart
                                     ได้ดำเนินการโอนเงินปันผลให้กับสมาชิก</p>
-                                <p class="card-text">รวมเป็นจำนวนเงิน {{ $money }}บาท</p>
+                                <p class="card-text">รวมเป็นจำนวนเงิน {{ $money[$x] }}บาท</p>
                             </div>
                         </div>
                     </section>
                 </table>
+                @php
+                $x+=1;
+                @endphp
             @endforeach
     </body>
     </html>
