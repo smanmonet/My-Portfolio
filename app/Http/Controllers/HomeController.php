@@ -81,15 +81,22 @@ class HomeController extends Controller
         return view('addmember');
     }
     public function store(Request $request){
-        
+        $str = "";
+        $upline = Member::where('memberID', $request->uplineID)->first();
+        if($request->name != null){
+              $prefix = ["create downline : ".$request->name." ".$request->surname."  ".
+              "   upline: ".$upline->Name." ".$upline->Surname];
+              $str = implode('  ',$prefix);
+        }
+      
+      
+
         $request->validate([
             'name' => 'required|string',
             'surname' => 'required|string',
             'address' => 'required|string',
-            //'rank'=> 'required|',
             'userID' => 'required|string|',
             'password' => 'required|string',
-            //'PV'=> 'required|',
             'uplineID' => 'required|string'
 
         ]);
@@ -104,13 +111,25 @@ class HomeController extends Controller
         'PV' =>  "0",
         'upline' => $request->uplineID
     ]);
-        return redirect('HomeHR/addmember')->with('message','new member has been added!!');
+    //->with('message','has create')
+    //->with('name',$request->name)->with('sur',$request->name)
+        return redirect('HomeHR/addmember')->with('message',$str);
     }
     public function update(int $id){
+
+
         $member = Member::find($id);
         return view('updateMember',compact('member'));
     }
     public function edit(Request $request,int $id){
+
+
+        $upline = Member::where('memberID', $id)->first();
+        $prefix = ["update member :".$upline->Name." ".$upline->Surname ];
+        $str = implode('  ',$prefix);
+
+
+
         $request->validate([
             'name' => 'required|string',
             'surname' => 'required|string',
@@ -130,7 +149,7 @@ class HomeController extends Controller
         'loginPass' => $request->password,
         
     ]);
-        return redirect()->back()->with('message','member update success!!');
+        return redirect()->back()->with('message',$str);
     }
     public $delete_id;
     protected $listeners = ['confirmation'=>'deleteMember'];

@@ -191,8 +191,9 @@ table.table td i {
     top:5px;
 }
 .logout {
-   padding-left: 68%
+   padding-left: 65%
 }
+
 
 </style>
 
@@ -229,6 +230,7 @@ table.table td i {
           </div>
           
           <div class="dropdown">
+            
             <select id="dynamic_select" style="border-radius: 10px" name="change" class="change">
                 <option value="" selected disabled >switch role</option>
                 @foreach($role as $role)
@@ -290,6 +292,8 @@ table.table td i {
                       
                      <tr>
                         <input type="hidden" class="serdelete_var" value="{{$member->memberID}}">
+                        <input type="hidden" class="serdelete_var1" value="{{$member->Name}}">
+                        <input type="hidden" class="serdelete_var2" value="{{$member->Surname}}">
                         <td>{{$loop->iteration}}</td>
                         <td>{{$member->memberID}}</td>
                         <td>{{$member->loginID}}</td>
@@ -300,7 +304,7 @@ table.table td i {
                         <td>
                             
                             <a href="{{url('HomeHR/'.$member->memberID.'/update')}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                            <a href="javascript:void(0)" wire:click.prevent='confirmation({{$member->memberID}})' class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                            <a href="javascript:void(0)" value={{$member->Name.$member->Surname}} name="delete" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                         </td>
                     </tr> 
                   @endforeach
@@ -330,11 +334,15 @@ table.table td i {
             e.preventDefault();
 
             var delete_id = $(this).closest("tr").find('.serdelete_var').val();
+          
+            var name = $(this).closest("tr").find('.serdelete_var1').val();
+            var sur = $(this).closest("tr").find('.serdelete_var2').val();
+            //var fullname = target.
             // alert(delete_id);
             // alert('Hello');
             Swal.fire({
                 title: "Are you sure?",
-                text: "Check! you want to delete this memberID:"+delete_id+"?",
+                text: "Check! delete :"+delete_id+"  "+name+" "+sur+"?",
                 icon: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#3085d6",
