@@ -12,6 +12,7 @@ class GroupController extends Controller
         $value = session()->get("id");
         $member = DB::table('member')->where('memberID', $value)->first();
         //dd($member);
+        $ses = session()->all();
 
         $ordinal = -1;
         $allpv = 0;
@@ -32,7 +33,7 @@ class GroupController extends Controller
 
         // แสดงผลลัพธ์
         //dd($alldownline);
-        return view('group',compact('alldownline','allpv','ordinal','member'));
+        return view('group',compact('alldownline','allpv','ordinal','member','ses'));
     }
     function refresh(Request $request){
         $allpv = json_decode($request->allpv);

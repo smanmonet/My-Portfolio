@@ -1,5 +1,6 @@
 @extends('layoutMember')
 @section('title', 'Promotion')
+@section('User', $ses['name'])
 @section('content')
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 

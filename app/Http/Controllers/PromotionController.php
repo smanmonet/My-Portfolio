@@ -11,8 +11,8 @@ class PromotionController extends Controller
         $promotion=DB::table('promotion')->get();
         $value = session()->get("id");
         $member = DB::table('member')->where('memberID', $value)->first();
-        
-        return view('promotion',compact('promotion','member'));
+        $ses = session()->all();
+        return view('promotion',compact('promotion','member','ses'));
     }
     
 }
