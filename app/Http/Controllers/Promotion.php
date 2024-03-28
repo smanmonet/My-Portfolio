@@ -8,15 +8,21 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
-
+use Spatie\QueryBuilder\QueryBuilder;
+use App\Models\Role;
 class Promotion extends Controller
 {
     public function index()
     {
         //dd(session()->all());
         $emp = DB::table('promotion')->get();
+        $value = session()->get("id");
+        $role = QueryBuilder::for(Role::class)
+        ->leftJoin('roletype','role.roletypeID','=','roletype.roletypeID')
+        ->where('role.empID',$value)
+        ->get();
         //dd($emp);
-        return view('show_promotion',compact('emp'));
+        return view('show_promotion',compact('emp','role','value'));
     }
     
     function delete($id){

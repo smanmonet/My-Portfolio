@@ -9,12 +9,34 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/bootstrap.min.css">
-        <div class="menu-bar">
-            <ul class="menu-list">
-                <li><a href="/stock_store" class="menu-item item-selected">Store</a></li>
-                <li><a href="/Promotion" class="menu-item">Promotion</a></li>
+        <style>
+            .menu-bar .nav-link.active {
+                background-color: transparent;
+                border-bottom: 4px solid #25393C;  
+                border-radius: 0; 
+                color:#25393C; 
+                font-size: 20px;
+                font-weight:500;
+            }
+            .menu-bar .nav-link {
+            font-size: 20px;
+            color: #25393C; 
+        }
+        </style>
+         <!-- link page -->
+        <div class="container">
+             <!-- link page -->
+             <div class="menu-bar d-flex justify-content-center">
+            <ul class="nav nav-pills">
+                <li class="nav-item">
+                    <a class="nav-link " href="/stock_store">Store</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/Promotion">Promotion</a>
+                </li>
             </ul>
         </div>
+        
         <title>แสดงสินค้าจั้ฟ</title>
     </head>
                         {{-- <h1>{{$item->name}}</h1>
