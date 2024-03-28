@@ -78,7 +78,7 @@ class CartController extends Controller
                 }
             }
         }
-        return view('cart');
+        return view('cart',compact('ses'));
     }
     
 }
