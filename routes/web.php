@@ -19,6 +19,7 @@ use App\Http\Controllers\HistoryDetailController;
 use App\Http\Controllers\PromotionController;
 use App\Http\Controllers\ReceiptController;
 use App\Http\Controllers\GroupController;
+use App\Http\Controllers\WelcomeController;
 
 Route::get('/', function () {
     return view('UserOrAdmin');
@@ -28,11 +29,12 @@ Route::get('/HomeHR', function () {
     return view('HomeHR');
 });
 //ProductMem,Cart
-Route::get('/welcome', function () {
+/*Route::get('/welcome', function () {
     $ses = session()->all();
     //dd($ses);
     return view('welcome',compact('ses'));
-});
+});*/
+Route::get('welcome',[WelcomeController::class,'index'])->name('welcome');
 Route::get('product',[ProductController::class,'index'])->name('product');
 Route::get('cart/{productID}',[CartController::class,'addToCart'])->name('cartAdd');
 Route::get('cart',[CartController::class,'index'])->name('cart');
