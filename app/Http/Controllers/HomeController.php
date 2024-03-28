@@ -121,14 +121,10 @@ class HomeController extends Controller
         $member = Member::find($id);
         return view('updateMember',compact('member'));
     }
-    public function edit(Request $request,int $id){
+    public function edit(Request $request){
 
-
-        $upline = Member::where('memberID', $id)->first();
-        $prefix = ["update member :".$upline->Name." ".$upline->Surname ];
-        $str = implode('  ',$prefix);
-
-
+        //$upline = Member::where('memberID', $id)->first();
+        //dd($request->all());
 
         $request->validate([
             'name' => 'required|string',
@@ -138,17 +134,23 @@ class HomeController extends Controller
             'userID' => 'required|string|',
             'password' => 'required|string',
             //'PV'=> 'required|',
-            
-
         ]);
+        $id=$request->memberID;
        Member::find($id)->update([
         'Name' => $request->name,
         'Surname' => $request->surname,
         'Address' => $request->address,
         'loginID' => $request->userID,
         'loginPass' => $request->password,
-        
-    ]);
+       ]);
+
+        //dd($request->surname);
+        if($request->name != null){
+        $prefix = ["update member :".$request->name." ".$request->surname ];
+        $str = implode('  ',$prefix);
+        }
+
+
         return redirect()->back()->with('message',$str);
     }
     public $delete_id;
