@@ -6,7 +6,7 @@ use App\Models\Role;
 use App\Models\Finance;
 use Illuminate\Http\Request;
 use Spatie\QueryBuilder\QueryBuilder;
-
+use Illuminate\Support\Facades\DB;
 
 class FinanceController extends Controller
 {
@@ -46,6 +46,40 @@ class FinanceController extends Controller
         $value = session()->get("id");
         //dd($value);
         $UserID = $value;
+            
+        $YAY=DB::table('orderproduct')->where('orderID',$orderID)->get();
+        $productIDs =[];
+        $productquan=[];
+        $productreal=[];
+      
+        //dd($YAY);
+        foreach ($YAY as $product) {
+            array_push($productIDs, $product->productID);
+            array_push($productquan, $product->Quantity);
+            
+        }
+        //dd($a=DB::table('product')->where('productID',1)->first('quantity'));
+        
+        foreach ($productIDs as $product) {
+            $a=DB::table('product')->where('productID',$product)->first('quantity');
+            array_push($productreal, $a);
+        }
+        $newArray = [];
+        foreach ($productreal as $object) {
+            $newArray[] = $object->quantity;
+        }
+        $newquan = [];
+        for ($i = 0; $i < count($newArray); $i++) {
+            $newquan[] = $newArray[$i] - $productquan[$i];
+        }
+
+        for ($i = 0; $i < count($newArray); $i++) {
+            DB::table('product')
+            ->where('productID', $productIDs[$i])
+            ->update(['quantity' => $newquan[$i]]);
+        }
+       
+        
        Finance::findOrFail($orderID)
        ->update([
         'status' => "สำเร็จ",
