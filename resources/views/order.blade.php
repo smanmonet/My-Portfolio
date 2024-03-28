@@ -150,10 +150,22 @@
                                     <label for="image">Image</label>
                                     <input type="file" id="image" name="image" class="form-control-file">
                                 </div>
-
+                                
+                                
                                 <div style="margin-right:40px" class="text-center">
-                                    <button type="submit" class="btn btn-outline-dark mt-auto">Confirm</button>
+                                    <button type="submit" id="confirmButton" class="btn btn-outline-dark mt-auto">Confirm</button>
                                 </div>
+                                <script>
+                                    document.getElementById('confirmButton').addEventListener('click', function(event) {
+                                        var imageInput = document.getElementById('image');
+                                        if (imageInput.files.length === 0) {
+                                            event.preventDefault(); // ยกเลิกการส่งฟอร์ม
+                                
+                                            alert('กรุณาแนบรูปภาพ'); // แสดง Popup แจ้งเตือน
+                                        }
+                                    });
+                                </script>
+                                
 
                             </div>
 

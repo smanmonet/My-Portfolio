@@ -38,6 +38,9 @@ class ConfirmOrder extends Controller
             $imageName = time() . '_' . $image->getClientOriginalName();
             $image->move(public_path('image'), $imageName); // Save image in image folder
         } 
+        else {
+            return redirect()->back()->withErrors(['image' => 'กรุณาแนบรูปภาพ'])->withInput();
+        }
         $orderData = [
             'orderID' => rand(100000,999999),
             'date' => now(),
