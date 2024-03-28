@@ -23,19 +23,17 @@
                     @foreach ($products as $item)
                         <div class="col mb-5">
                             <div class="card h-100">
-                                <img src="{{ url('images/' . $item->image) }}" class="rounded mx-auto d-block"
-                                    alt="...">
+                                <img src="{{ url('images/' . $item->image) }}" class="rounded mx-auto d-block img-fluid" alt="Product Image">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $item->productname }}</h5><br>
                                     <p class="card-text">ราคา : {{ $item->price }}บาท </p>
                                     <p class="card-text">PV : {{ $item->PVPercent }}point</p>
                                     @if ($item->quantity != 0)
-                                        <p class = "text text-success">สินค้าในคลัง : {{ $item->quantity }} ชิ้น</p>
+                                        <p class="text text-success">สินค้าในคลัง : {{ $item->quantity }} ชิ้น</p>
                                         &nbsp;&nbsp;
-                                        <a href="{{ route('cartAdd', $item->productID) }}"
-                                            class="btn btn-dark">ใส่รถเข็น</a>
+                                        <a href="{{ route('cartAdd', $item->productID) }}" class="btn btn-dark">ใส่รถเข็น</a>
                                     @else
-                                        <p class = "text text-danger">สินค้าหมด</p>
+                                        <p class="text text-danger">สินค้าหมด</p>
                                     @endif
                                 </div>
                                 <br>
