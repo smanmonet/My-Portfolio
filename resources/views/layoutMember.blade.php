@@ -42,7 +42,7 @@
         </div>
         <div class="d-flex flex-row justify-content-between card-footer p-4  border-top-0 bg-transparent  "
             style="text-align: right">
-            <a style="color: rgb(170, 176, 182);padding: 10px" href="#" class="nav-link">
+            <a style="color: rgb(170, 176, 182);padding: 10px" href="/Notification" class="nav-link">
                 <h5>noti</h5>
             </a>
             <img src="https://cdn-icons-png.freepik.com/256/6022/6022876.png" style="height: 40px">
