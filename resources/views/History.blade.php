@@ -30,7 +30,7 @@
                                                 <p>หมายเลขคำสั่งซื้อ</p>
                                             </div>
                                             <div class="col-6">
-                                                <p>{{ $item->Date }}</p>
+                                                <p>{{ $item->orderID }}</p>
                                             </div>
                                         </div>
                                         <div class="row">
