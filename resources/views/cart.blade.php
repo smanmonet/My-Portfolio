@@ -14,7 +14,8 @@
                         <div class="col m-0 " style="width:1000px;">
                             <div class="d-flex card h-50" style="border-radius:20px;">
 
-                                <img src="{{ url('images/' . $details['image']) }}" class="rounded mx-auto d-block" alt="...">
+                                <img src="{{ url('images/' . $details['image']) }}" class="rounded mx-auto d-block"
+                                    alt="...">
                                 <div class="d-flex flex-row justify-content-around card-body p-4">
 
                                     <h4 class="card-title">{{ $details['name'] }}</h4>
@@ -31,24 +32,31 @@
                                     </a>
                                     <a href="{{ route('deletePd', $details['productID']) }}" class="btn btn-danger"
                                         style="width: 18%"
-                                        onclick="return confirm('ต้องการลบสินค้า{{ $details['name'] }}ออกจากตะกร้าหรือไม่ ?')">ลบสินค้าของจากตะกร้า
+                                        onclick="return confirm('ต้องการลบสินค้า{{ $details['name'] }}ออกจากตะกร้าหรือไม่ ?')">ลบสินค้าจากตะกร้า
                                     </a>
                                 </div>
                             </div>
             @endforeach
             <br>
-            <h4>จำนวนสินค้าทั้งหมด {{ $sumQty }}ชิ้น
-                <br>ราคารวม {{ $sumP }} บาท
-            </h4><br>
+            <center>
+                <h4 class="form-label">
+                    จำนวนสินค้าทั้งหมด {{ $sumQty }} ชิ้น<br>
+                </h4>
+                <h4 class="form-label">
+                    <br>ราคารวม {{ $sumP }} บาท<br>
+                </h4>
 
-            <a href="/clearCart/{productID}" style= "background-color: red" class="btn btn-dark my-3"
-                value="ยกเลิกสินค้า">ยกเลิกสินค้า</a>
-            <a href="/order" style="background-color: blue" class="btn btn-dark my-3"
-                value="สั่งซื้อสินค้า">สั่งซื้อสินค้า</a>
+
+                <a href="/clearCart/{productID}" style= "background-color: red" class="btn btn-dark my-3"
+                    value="ยกเลิกสินค้า">ยกเลิกสินค้า</a>
+                <a href="/order" style="background-color: blue" class="btn btn-dark my-3"
+                    value="สั่งซื้อสินค้า">สั่งซื้อสินค้า</a>
+            </center>
         @else
             <h4 class="my-5">
                 <center>Empty Cart</center>
             </h4>
         @endif
+
     </tbody>
 @endsection
