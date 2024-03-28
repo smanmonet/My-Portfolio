@@ -12,6 +12,8 @@ use App\Models\Orders;
 class ReceiptController extends Controller
 {
     function receipt($proID){
+        $value = session()->get("id");
+        $member = DB::table('member')->where('memberID', $value)->first();
         $date = now()->toDateString();//date แบบ ไม่มี time
         $orderID = hexdec(substr(uniqid(), 0, 8)); //สุ่ม int 10 ตัว
         $promotions=DB::table('promotiondetail')
@@ -32,7 +34,7 @@ class ReceiptController extends Controller
         ->where('pro.proID', $proID)
         ->sum('product.price');
         //dd("$SUM");
-        return view('receipt',compact('promotions','promotion','v','SUM','orderID','date'));
+        return view('receipt',compact('promotions','promotion','v','SUM','orderID','date','member'));
     }
     public function upload(Request $request)
     {

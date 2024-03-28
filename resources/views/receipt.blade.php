@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-        <title>Promotion</title>
+        <title>Receipt</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -40,31 +40,36 @@
             <div class=" justify-content-center align-items-end" style="padding-top:50px">
             
                 <div class="col m-0 " style="width:1000px;"><!--height:1500px;-->
+                <form action="{{ route('upload.receipt') }}" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="promotion" value="{{ json_encode($promotion) }}">
+                    <input type="hidden" name="orderID" value="{{ json_encode($orderID) }}">
+                    <input type="hidden" name="date" value="{{ json_encode($date) }}">
+                    
                     <div class="d-flex card h-50" style="border-radius:20px;">
             
                         <!--HEADER RECEIPT-->
                         <div class="d-flex flex-row justify-content-around card-body p-4">
                             <div class="d-flex flex-column text-start">
-                                <h7 class="fw-bolder">name651651</h7>
-                                email
+                                <h7 class="fw-bolder">{{$member->Name}}</h7>
+                                {{$member->loginID}}
                             </div>
                             <div class="d-flex flex-column text-start">
                                 <h7 class="fw-bolder">รหัสคำสั่งซื้อ</h7>
-                                b1
+                                {{$orderID}}
                             </div>
                             <div class="d-flex flex-column text-start">
                                 <h7 class="fw-bolder">วันที่สั่งซื้อ</h7>
-                                15/08/2020
+                                {{$date}}
                             </div>
                             <div class="d-flex flex-column text-start">
                                 <h7 class="fw-bolder">ที่อยู่</h7>
-                                115/32 หมู่ 10 ต.พิมลราช อ.บางบัวทอง จ.นนทบุรี 11110
+                                {{$member->Address}}
                             </div> 
                         </div>
                         <!--PROMOTION RECEIPT-->
                         <div class="d-flex flex-column justify-content-start card-body p-4" >
                             <div class="d-flex flex-column text-start" style="margin-left:40px">
-                                <h7 class="fw-bolder">Promotion ( {{$v}} )</h7>
+                                <h7 class="fw-bolder">Promotion ( {{$promotion->promotionname}} )</h7>
                             </div>
                             @foreach ($promotions as $pro)
                                 <div class="d-flex flex-row justify-content-between" style="margin-left:40px;margin-top:15px;"> 
@@ -103,16 +108,24 @@
                         <div class="d-flex flex-row justify-content-between card-footer p-4  border-top-0 bg-transparent" style="">
                             
                             <div style="margin-left:40px;" class="text-center">
-                                <form action="{{ route('upload.receipt') }}" method="post" enctype="multipart/form-data">
+                                <!---->
                                     @csrf
-                                    <input type="file" name="image">
-                                    <button type="submit">Upload</button>
-                                </form>
+                                    <input class="btn btn-outline-dark mt-auto" type="file" name="image">
+                                    
+                                
                             </div>
+                            
+                            @error('image')
+                            <div style="color:red; margin-right:220px;padding-top:5px" class="text-center align-items-center">
+                                {{$message}}
+                            </div>
+                                
+                            @enderror
 
-                            <div style="margin-right:40px" class="text-center"><a class="btn btn-outline-dark mt-auto" href="{{route('promotion')}}">Confirm</a></div>
+                            <div style="margin-right:40px" class="text-center"><button class="btn btn-outline-dark mt-auto" type="submit">Confirm</button></div>
                         </div>
                     </div>
+                </form>
                 </div>
             </div>
         </div>

@@ -21,11 +21,11 @@
         @endforeach
         <div class="d-flex flex-column justify-content-center align-items-center " style="margin-top:0px; color: #44576D; font-size: 35px; font-family: Inter; font-weight: 700; gap:12px;">
             <div style="margin-top:0px;">
-                <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg"
+                <img class="card-img-top" src="https://i.pinimg.com/564x/86/ff/31/86ff31cff83795e5c07d48794facf7c2.jpg"
                 alt="..." />
             </div>
             
-                <div class="d-flex flex-row" style="gap:12px;margin-top:20px;">
+                <div class="d-flex flex-row" style="gap:12px;margin-top:5px;">
                     <div>
                         {{$member->Name}}  {{$member->Surname}}
                     </div>
