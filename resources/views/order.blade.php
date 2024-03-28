@@ -18,11 +18,11 @@
 
                                 <div class="d-flex flex-column text-start">
                                     <h7 class="fw-bolder">Name Surname</h7>
-                                    {{$member->Name}} {{$member->Surname}};
+                                    {{$member->Name}} {{$member->Surname}}
                                 </div>
                                 <div class="d-flex flex-column text-start">
-                                    <h7 class="fw-bolder">OrderID</h7>
-                                    <?php echo rand(100000,999999); ?>
+                                    <h7 class="fw-bolder">memberID</h7>
+                                    {{$member->memberID}}
                                 </div>
                                 <div class="d-flex flex-column text-start">
                                     <h7 class="fw-bolder">Date</h7>
@@ -33,7 +33,7 @@
                                 </div>
                                 <div class="d-flex flex-column text-start">
                                     <h7 class="fw-bolder">Address</h7>
-                                    {{$member->Address}};
+                                    {{$member->Address}}
                                 </div>
 
                             </div>

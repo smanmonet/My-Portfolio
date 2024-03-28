@@ -26,14 +26,15 @@ class ConfirmOrder extends Controller
         
     
         $orderData = [
-            'date' => rand(100000,999999),
+            'orderID' => rand(100000,999999),
+            'date' => now(),
             'memberID' => $member->memberID,
             'status' => 'รอตรวจสอบ',
             'empID' => 1,
             'image' => null
         ];
 
-        dd($orderData);
+       // dd($orderData);
         $orderId = DB::table('orders')->insertGetId($orderData);
 
 
