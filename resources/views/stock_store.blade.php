@@ -1,14 +1,35 @@
 @extends('layoutStock')
 @section('title', 'Stock')
 @section('content')
+ <!-- link page -->
+<style>
+    .menu-bar .nav-link.active {
+        background-color: transparent;
+        border-bottom: 4px solid #25393C; /* Add underline when active */
+        border-radius: 0; /* Remove border radius */
+        color:#25393C; 
+        font-size: 20px;
+        font-weight:500;
+    }
+.menu-bar .nav-link {
+    font-size: 20px;
+    color: #25393C; /* Change text color to white for better visibility */
+}
+</style>
+ <!-- link page -->
 <div class="container">
      <!-- link page -->
-<div class="menu-bar">
-    <ul class="menu-list">
-        <li><a href="/stock_store" class="menu-item item-selected">Store</a></li>
-        <li><a href="/Promotion" class="menu-item">Promotion</a></li>
+     <div class="menu-bar d-flex justify-content-center">
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+            <a class="nav-link active" href="/stock_store">Store</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Promotion">Promotion</a>
+        </li>
     </ul>
 </div>
+
  <!-- link page -->
     <div class="row justify-content-between mb-3">
         <div class="col-auto">

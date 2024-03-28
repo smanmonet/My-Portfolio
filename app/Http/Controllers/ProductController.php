@@ -9,7 +9,8 @@ use App\Models\Product;
 use App\Models\OrderProduct;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
-
+use Spatie\QueryBuilder\QueryBuilder;
+use App\Models\Role;
 class ProductController extends Controller
 
 {
@@ -25,7 +26,6 @@ class ProductController extends Controller
             $message = "ไม่พบสินค้าที่คุณค้นหา";
             return view('product', compact('message', 'ses'));
         }
-    
         return view('product', compact('products', 'ses')); 
     }
     public function stock(Request $request)
@@ -41,7 +41,12 @@ class ProductController extends Controller
         })
         ->groupBy('product.productID', 'product.productname' , 'product.price', 'product.quantity', 'product.Min', 'product.PVPercent', 'product.image')
         ->get();
-        return view('stock_store', compact('products'));
+        $value = session()->get("id");
+        $role = QueryBuilder::for(Role::class)
+        ->leftJoin('roletype','role.roletypeID','=','roletype.roletypeID')
+        ->where('role.empID',$value)
+        ->get();
+        return view('stock_store', compact('products','role'));
     }
 
     public function stock_edit()
