@@ -27,7 +27,7 @@
                                     <p class="card-text">ราคารวม : {{ $details['price'] * $details['quantity'] }} บาท </p>
                                     <div style="display: none"> {{ $sumQty}}</div>
                                     <div style="display: none"> {{ $sumP }}
-                                    </div>
+                                </div>
                                     <a href="{{ route('deleteCart', $details['productID']) }}" class="btn btn-danger"
                                         style="width: 10%"
                                         onclick="return confirm('ต้องการลดจำนวนสินค้า{{ $details['name'] }}หรือไม่ ?')">ลบที่ละชิ้น
