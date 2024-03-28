@@ -32,28 +32,35 @@ class AuthAdminController extends Controller
             
         $admin = Admin::where('userID', $credentials['emailAdmin'])->first();
         $admins = DB::table('employee')->where('userID', $request->userID)->first();
-
+        //dd($em);
+        
+        
+        if ($em==null){
+            
+            return redirect('/loginAdmin')->with('error', 'Invalid password.');
+        }
         $role = QueryBuilder::for(Role::class)
                     ->leftJoin('roletype','role.roletypeID','=','roletype.roletypeID')
                     ->where('role.empID','=',$em->employeeID)
                     ->get();
-        
         $memID = $em->employeeID;
-
         session(['id'=>$memID]);
         //session(['name'=>$member->Name]);
         $value = session()->get("id");
         //dd($value);
 
         if ($admin === null) {
+            //dd($value);
             return redirect('/login')->with('error', 'Invalid member credentials.');
         }
 
         if ($request->password === $admin->password) {
+            //dd($value);
             return view('/StartAdmin', compact('admins','role','member','memID'))->with('success', 'Login berhasil!');
 
         } else {
-            return redirect('/login')->with('error', 'Invalid password.');
+           // dd($value);
+            return redirect('/loginAdmin')->with('error', 'Invalid password.');
         }
     }
     public function logoutAdmin()

@@ -30,6 +30,11 @@ class AuthUserController extends Controller
         $member = DB::table('member')->where('loginID', $credentials['email'])->first();
         $members = DB::table('member')->where('loginID', $request->loginID)->first(); //เอาข้อมูลส่งผ่านไป
         //dd($members);
+        if($member==null){
+        
+            return redirect('/login')->with('error', 'Invalid password.');
+        }  
+        ;
         session(['id'=>$member->memberID]);
         session(['name'=>$member->Name]);
         $value = session()->get("id");
