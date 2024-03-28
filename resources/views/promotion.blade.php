@@ -24,7 +24,7 @@
                 <div class="col mb-5">
                     <div class="card h-100">
                         <!-- Product image-->
-                        <img src="{{ url('images/' . $pro->image) }}" class="rounded mx-auto d-block" alt="...">
+                        <img src="{{ url('images/' . $pro->image) }}" class="rounded mx-auto d-block img-fluid" alt="...">
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
