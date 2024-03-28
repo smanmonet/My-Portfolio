@@ -29,7 +29,7 @@ class FinanceController extends Controller
         ->groupBy('orders.orderID')
         //->sum('product.price * orderproduct.Quantity')
         ->get();
-
+        //
 
         $value = session()->get("id");
         //dd($value);
@@ -56,7 +56,7 @@ class FinanceController extends Controller
         foreach ($YAY as $product) {
             array_push($productIDs, $product->productID);
             array_push($productquan, $product->Quantity);
-            
+
         }
         //dd($a=DB::table('product')->where('productID',1)->first('quantity'));
         
@@ -71,6 +71,7 @@ class FinanceController extends Controller
         $newquan = [];
         for ($i = 0; $i < count($newArray); $i++) {
             $newquan[] = $newArray[$i] - $productquan[$i];
+            //$newArray[i] = $newArray[i]-1
         }
 
         for ($i = 0; $i < count($newArray); $i++) {
@@ -78,7 +79,7 @@ class FinanceController extends Controller
             ->where('productID', $productIDs[$i])
             ->update(['quantity' => $newquan[$i]]);
         }
-       
+        
         
        Finance::findOrFail($orderID)
        ->update([
