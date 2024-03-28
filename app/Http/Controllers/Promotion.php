@@ -27,6 +27,7 @@ class Promotion extends Controller
         $PromoInfo=DB::table('promotion')->where('proID',$id)->first();
         $PdInfo=DB::table('infodetail')->where('promotionID',$id)->get();
         //dd($PdInfo);
+        //dd($PdInfo);
         return view('infoPromotion',compact('PromoInfo','PdInfo'));
     }
 }

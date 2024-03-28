@@ -1,4 +1,4 @@
-@extends('layoutpromo')
+@extends('layoutStock')
 @section('content')
     
 
@@ -23,8 +23,8 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-6 col-md-12">
                         <h1 class="fw-light">Confirm Promotion</h1>
-                        <p class="lead text-body-secondary">ต้องการจะยืนยันโปรโมชั่นใช่มั้ยไอ่เวร คว</p>
-                        <form class="needs-validation" novalidate="" action="{{route('confirm.form')}}" method="POST">
+                        <p class="lead text-body-secondary">ต้องการจะยืนยันโปรโมชั่นใช่มั้ย</p>
+                        <form class="needs-validation" novalidate="" action="{{route('confirm.form')}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row g-3">
                                 <div class="col-12">
@@ -71,6 +71,10 @@
                                     <div class="input-group has-validation">
                                         <input type="text" class="form-control" name = "pro_end" value="{{$formData['pro-end'] }}" id="pro-end" placeholder="" required="" readonly>
                                     </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="image">Image</label>
+                                    <input type="file" id="image" name="image" class="form-control-file" >
                                 </div>
                                 <p>สินค้าที่เลือก : </p>
                                 @foreach ($formData['productNames'] as $key => $value)

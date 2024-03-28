@@ -105,7 +105,7 @@
                                                 <div class="col order-sm-last">
                                                     <!-- ใช้ order-sm-last เพื่อให้แสดงทางขวาในหน้าจอขนาดเล็กขึ้น -->
                                                     <div class="card shadow-sm">
-                                                        <img src="{{ url('images/' . $item->image) }}"
+                                                        <img  style="width: 100px; height: 100px;" src="{{ url('images/' . $item->image) }}"
                                                             class="rounded mx-auto d-block" alt="...">
                                                         <div class="card-body .bg-light">
                                                             <p class="card-text">

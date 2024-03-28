@@ -9,7 +9,12 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/bootstrap.min.css">
-
+        <div class="menu-bar">
+            <ul class="menu-list">
+                <li><a href="/stock_store" class="menu-item item-selected">Store</a></li>
+                <li><a href="/Promotion" class="menu-item">Promotion</a></li>
+            </ul>
+        </div>
         <title>แสดงสินค้าจั้ฟ</title>
     </head>
                         {{-- <h1>{{$item->name}}</h1>
@@ -36,9 +41,9 @@
                             
                             @foreach($emp as $item)
                             <div class="col order-sm-last"> <!-- ใช้ order-sm-last เพื่อให้แสดงทางขวาในหน้าจอขนาดเล็กขึ้น -->
-                                <div class="card shadow-sm">
-                                    <img src="{{ url('images/' . $item->image) }}"
-                                                            class="rounded mx-auto d-block" alt="...">
+                                <div class="card shadow-sm" >
+                                    <img style="width: 100px; height: 100px;" src="{{ url('images/' . $item->image) }}"
+                                                            class="rounded mx-auto d-block" alt="..." >
                                     <div class="card-body">
                                         <p class="card-text">
                                             <h1>{{$item->promotionname}}</h1>
@@ -51,12 +56,7 @@
                                                     class="btn btn-sm btn-outline-secondary"
                                                     > Info
                                                 </a>
-                                                <a
-                                                    href="" 
-                                                    class="btn btn-sm btn-outline-secondary"
-                                                    > Edit
-                                                </a>
-                                                
+                                             
                                                 <a
                                                     href="{{route('deletepromo',$item->proID)}}" 
                                                     class="btn btn-danger"
