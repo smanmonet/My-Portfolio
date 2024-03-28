@@ -262,7 +262,7 @@ label {
             "progressBar" : true,
             "closeButton" : true,
           }
-          toastr.success("{{ Session::get('message')}}" , 'Success!',{timeOut:2000});
+          toastr.success("{{Session::get('message')}}" , 'Success!',{timeOut:2000});
     </script>
     @elseif($errors->any())
     <script>
