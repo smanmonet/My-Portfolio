@@ -1,5 +1,5 @@
 @extends('layoutMember')
-@section('title', 'Promotion')
+@section('title', 'History')
 @section('User', $His_name['name'])
 @section('content')
 <html lang="en">
@@ -47,6 +47,14 @@
                                             </div>
                                             <div class="col-6">
                                                 <p>{{ $item->Address }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <p>สถานะ</p>
+                                            </div>
+                                            <div class="col-6">
+                                                <p>{{ $item->status }}</p>
                                             </div>
                                         </div>
                                         <hr>

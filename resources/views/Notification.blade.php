@@ -1,5 +1,5 @@
 @extends('layoutMember')
-@section('title', 'Promotion')
+@section('title', 'Notification')
 @section('content')
     <html lang="en">
 
@@ -22,7 +22,7 @@
                                 แจ้งผลการโอนเงินปันผลและ/หรือโบนัส
                             </div>
                             <div class="card-body">
-                                <h5 class="card-title">เมื่อวันที่ 28 ก.พ. 2567 ทางบริษัทSupermart
+                                <h5 class="card-title">เมื่อวันที่ 28 ก.พ. 2567 ทางบริษัท Supermart
                                     ได้ดำเนินการโอนเงินปันผลให้กับสมาชิก</h5>
                                 <p class="card-text">ประจำเดือน: ก.พ. 2567 รวมเป็นจำนวนเงิน {{ $money }}บาท</p>
                             </div>

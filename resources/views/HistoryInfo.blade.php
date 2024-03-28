@@ -1,5 +1,5 @@
 @extends('layoutMember')
-@section('title', 'Promotion')
+@section('title', 'HistoryInfo')
 @section('content')
 <html lang="en">
 
