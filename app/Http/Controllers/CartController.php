@@ -33,10 +33,12 @@ class CartController extends Controller
     public function index(Request $request){
         $sumP = 0;
         $sumQty = 0;
-        //$request->session()->flush();
         $ses = session()->all();
-        //session()->get("id");
         //dd($ses);
+        foreach ($ses['cart'] as $product) {
+            $sumP += $product['price'] * $product['quantity'];
+            $sumQty += $product['quantity'];
+        }
         return view('cart',compact('sumP','sumQty','ses'));
     }
     public function deleteCart(Request $request){
@@ -60,13 +62,22 @@ class CartController extends Controller
             if(isset($cart[$request->productID]) ) {
                 unset($cart[$request->productID]);
                 session()->put('cart', $cart);
+                //dd($cart);
             }
             session()->flash('success', 'Product successfully deleted.');
         }
         return redirect('cart');
     }
-    public function clearCart(Request $request){
-        $request->session()->flush();
+    public function clearCart(Request $request)
+    {
+        $ses = session()->all();
+        if(session()->has('cart')) {
+            foreach(session('cart') as $key => $value) {
+                if ($key > 0) {
+                    $request->session()->forget("cart.$key");
+                }
+            }
+        }
         return view('cart');
     }
     

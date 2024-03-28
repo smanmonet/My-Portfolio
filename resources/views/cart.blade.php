@@ -23,8 +23,8 @@
                                     <p class="card-text">รหัสสินค้า : {{ $details['productID'] }} </p>
                                     <p class="card-text">จำนวน : {{ $details['quantity'] }} ชิ้น </p>
                                     <p class="card-text">ราคารวม : {{ $details['price'] * $details['quantity'] }} บาท </p>
-                                    <div style="display: none"> {{ $sumQty += $details['quantity'] }}</div>
-                                    <div style="display: none"> {{ $sumP += $details['price'] * $details['quantity'] }}
+                                    <div style="display: none"> {{ $sumQty}}</div>
+                                    <div style="display: none"> {{ $sumP }}
                                     </div>
                                     <a href="{{ route('deleteCart', $details['productID']) }}" class="btn btn-danger"
                                         style="width: 10%"
