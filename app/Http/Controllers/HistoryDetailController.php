@@ -9,6 +9,7 @@ class HistoryDetailController extends Controller
 {
     public function index($orderID)
     {
+        $HisInfo_name = session()->all();
         //$members = json_decode($request->members);
         //dd($orderID);
         $historyhead = DB::table('orders')
@@ -30,6 +31,6 @@ class HistoryDetailController extends Controller
         
         $historybottom = DB::table('pd2')->where('orderID',$orderID)->first();
             
-        return view('Historyinfo', compact('historyhead', 'historybody','orderID','historybottom'));
+        return view('Historyinfo', compact('historyhead', 'historybody','orderID','historybottom','HisInfo_name'));
     }
 }
