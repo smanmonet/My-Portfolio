@@ -56,7 +56,7 @@ Route::post('/Promotion/confirmReal',[confirmPromotion::class,'confirmkub'])->na
 //Order
 Route::get('order',[OrderController::class,'index'])->name('order');
 Route::post('confirmOrder',[ConfirmOrder::class,'confirm'])->name('confirm'); 
-
+Route::post('cart', [ConfirmOrder::class, 'clearCart'])->name('clearCart');
 //member ->pang
 
 Route::get('/HomeHR', [HomeController::class,'HomeMember'])->name('HomeMember');

@@ -67,6 +67,15 @@ class ConfirmOrder extends Controller
         
         DB::table('orderproduct')->insert($orderProducts);
        
+        $ses = session()->all();
+        if(session()->has('cart')) {
+            foreach(session('cart') as $key => $value) {
+                if ($key > 0) {
+                    $request->session()->forget("cart.$key");
+                }
+            }
+        }
+        
         return redirect('/product');
     }
 
