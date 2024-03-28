@@ -20,12 +20,12 @@
                     <section class="py-2">
                         <div class="card">
                             <div class="card-header">
-                                แจ้งผลการโอนเงินปันผลและ/หรือโบนัส
+                                แจ้งผลการโอนเงินปันผลหรือโบนัส
                             </div>
                             <div class="card-body">
-                                <h5 class="card-title">เมื่อวันที่ 28 ก.พ. 2567 ทางบริษัท Supermart
-                                    ได้ดำเนินการโอนเงินปันผลให้กับสมาชิก</h5>
-                                <p class="card-text">ประจำเดือน: ก.พ. 2567 รวมเป็นจำนวนเงิน {{ $money }}บาท</p>
+                                <p class="card-title">เมื่อวันที่ {{ $n->Date }} ทางบริษัท Supermart
+                                    ได้ดำเนินการโอนเงินปันผลให้กับสมาชิก</p>
+                                <p class="card-text">รวมเป็นจำนวนเงิน {{ $money }}บาท</p>
                             </div>
                         </div>
                     </section>

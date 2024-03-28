@@ -14,10 +14,11 @@ class NotiController extends Controller
         $value = session()->get("id");
         $percent = 0;
 
-        $noti = DB::table('pv_history')->get('PV_down');
-        $noti_money = DB::table('pv_history')->get('PV_down');
+        $noti_pv = DB::table('pv_history')->get('PV_down');
+        $noti = DB::table('pv_history')->get();
+
         
-        $noti_money_int = $noti->map(function ($item) {
+        $noti_money_int = $noti_pv->map(function ($item) {
             return (int)$item->PV_down;
         });
 
@@ -36,10 +37,10 @@ class NotiController extends Controller
                 $percent = 0.21;
             }
         }
-
+        //dd($noti_date);
         $money = $percent * $item * 3;
         
-        return view('Notification', compact('money', 'noti_name','noti'));
+        return view('Notification', compact('money', 'noti_name','noti_pv','noti'));
     }
 
 }
