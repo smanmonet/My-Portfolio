@@ -10,6 +10,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
     </script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@latest/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://cdn.jsdelivr.net/npm/ionicons@latest/dist/ionicons/ionicons.js"></script>
 </head>
 <style>
     .gradient-custom-2 {
@@ -43,6 +45,12 @@
 </style>
 
 <body>
+    <div class="d-flex flex-row justify-content-between card-footer p-4  border-top-0 bg-transparent"
+        style="text-align: right">
+        <a style="color: rgb(0, 0, 0)"; href="/UserOrAdmin" class="nav-link">
+            <ion-icon name="arrow-back-outline"></ion-icon>
+        </a>
+    </div>
     <section class="h-100 gradient-form" style="background-color: #eee;">
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
