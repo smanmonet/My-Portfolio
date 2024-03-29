@@ -13,6 +13,7 @@ class ReceiptController extends Controller
 {
     function receipt($proID){
         $value = session()->get("id");
+        $ses = session()->all();
         $member = DB::table('member')->where('memberID', $value)->first();
         $date = now()->toDateString();//date แบบ ไม่มี time
         $orderID = hexdec(substr(uniqid(), 0, 8)); //สุ่ม int 10 ตัว
@@ -34,7 +35,7 @@ class ReceiptController extends Controller
         ->where('pro.proID', $proID)
         ->sum('product.price');
         //dd("$SUM");
-        return view('receipt',compact('promotions','promotion','v','SUM','orderID','date','member'));
+        return view('receipt',compact('promotions','promotion','v','SUM','orderID','date','member','ses'));
     }
     public function upload(Request $request)
     {
@@ -57,7 +58,7 @@ class ReceiptController extends Controller
             'orderID'=>$orderID,
             'date'=>$date,
             'memberID'=>$member->memberID,//รอระบบ authenticate
-            'status'=>NULL,
+            'status'=>"รอตรวจสอบ",
             'empID'=>NULL,
             'image'=>$imageName
         ];
