@@ -1,0 +1,76 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; /* Light background for contrast */
+}
+
+.form-group {
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.input-text, .input-date {
+    padding: 8px;
+    width: 100%;
+    max-width: 300px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.details-table {
+    width: 100%; /* Set the table width to fill the container */
+    max-width: 600px; /* Set a maximum width for better responsiveness */
+    border-collapse: collapse;
+    margin: 20px auto; /* Center the table and add margin */
+    background-color: #fff; /* White background for the table */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+}
+
+.details-table th, .details-table td {
+    border: 1px solid #ddd;
+    padding: 12px; /* Consistent padding for better readability */
+    text-align: center; /* Center align text */
+}
+
+.details-table th {
+    background-color: #5bc0de; /* Primary color for header */
+    color: white; /* Text color for header */
+}
+
+.details-table td {
+    background-color: #f2f2f2; /* Light gray for table cells */
+}
+
+.button-group {
+    text-align: center; /* Center the button group */
+    margin-top: 20px;
+}
+
+.button-back, .button-submit {
+    padding: 10px 15px; /* Consistent padding for buttons */
+    background-color: #5bc0de; /* Default button color */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px; /* Consistent font size for buttons */
+    transition: background-color 0.3s; /* Smooth transition for hover effects */
+}
+
+.button-submit {
+    background-color: #5cb85c; /* Button color for "Submit" */
+}
+
+.button-back:hover {
+    background-color: #31b0d5; /* Darker shade for hover effect on "Back" */
+}
+
+.button-submit:hover {
+    background-color: #4cae4c; /* Darker shade for hover effect on "Submit" */
+}
+
+.button-back:hover, .button-submit:hover {
+    opacity: 0.9; /* Consistent hover effect */
+}
