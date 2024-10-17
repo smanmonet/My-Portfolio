@@ -1,0 +1,292 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #F1F8E8;
+  
+    margin: 0;
+    padding: 0;
+  }
+
+/* head*/
+
+
+.headnav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #55AD9B; 
+    border-bottom: 1px solid #000; 
+    height: 70px;
+  }
+  
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+.headnav a {
+    margin-left: 20px;
+    text-decoration: none;
+    font-size: 16px;
+    color: black;
+  }
+
+.headnav a:hover {
+    text-decoration: underline;
+  }
+  
+  .headnav a:last-child {
+    margin-right: 0;
+  }
+
+/* Container */
+
+.container-dairy-detail {
+    margin: 20px auto;
+    width: 80%;
+    max-width: 800px;
+    background: #95D2B3;
+    padding-inline: 30px;
+    padding-top: 30px;
+    padding-bottom: 1px;  
+    border-radius: 20px;
+}
+
+.container-dairy-detail a {
+color: #000000;
+}
+
+.container-dairy-detail h2,p {
+   display: flex;
+   justify-content: center ;
+    }
+
+.container-dairy-detail a:hover {
+
+    color: #4d4d4d;
+    }
+
+.container {
+    margin: 20px auto;
+    width: 80%;
+    max-width: 800px;
+    background: #95D2B3;
+    padding: 20px;  
+    border-radius: 20px;
+}
+.head-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Search bar */
+.search-bar {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+    margin-right: 15px;
+    margin-top: 10px;
+}
+
+.search-bar input {
+    padding: 10px;
+    width: 100%;
+    max-width: 300px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+/* Dairy list and items */
+.dairy-list {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 10px; 
+    justify-content: center;
+}
+
+.dairy-item {
+    background: rgba(255, 255, 255, 0.5);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    
+    padding-top: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: calc(33.333% - 20px);
+    box-sizing: border-box;
+    margin-bottom: 20px; 
+    display: flex;
+    flex-direction: column;
+}
+
+.dairy-item h4 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.dairy-item a{
+    text-decoration: none;
+    color: #000000;
+    font-weight: bold;
+}
+
+.dairy-item-date {
+    padding: 10px;
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    margin-top: auto; /* ดัน dairy-item-date ลงด้านล่างสุด */
+}
+
+
+
+.dairy-item-date button {
+    font-size: 9px;
+    background-color: rgb(248, 92, 92)   ;
+    border: none;
+    box-shadow: 0 1px 2px darkslategray;
+    cursor: pointer;
+    border-radius: 8%
+}
+
+
+.dairy-item p {
+    margin: 10px 0 0;
+    font-size: 12px;
+    color: #555;
+}
+
+
+.dairy-add button {
+    background-color: #55AD9B;
+    color: white;
+    border: none;
+    padding: 5px;
+    font-size: 31px;
+    height: 50px;
+    width: 50px;
+    box-shadow: 0 2px 4px darkslategray;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 70%
+}
+
+.dairy-add button:hover{
+    background-color: #37c6fff1;
+
+}
+
+.diary_footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.diary_footer h5{
+font-weight: 100;
+}
+
+.diary_footer  button{
+background-color: #F1F8E8;
+border: none;
+padding: 5px;   
+border-radius: 10%;
+
+}
+
+.diary_footer  button:hover{
+    background-color: #727272;
+    border: none;
+    padding: 5px;
+    border-radius: 10%;
+    box-shadow: 0 2px 4px darkslategray;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    }
+
+
+.group{
+    display: flex;
+    gap: 10px;
+}
+
+
+
+
+
+
+
+/* Modal */
+.modal {
+    display: none; 
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+}
+
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 650px;
+    border-radius: 8px;
+}
+
+/* ปุ่มปิด (x) */
+.close {
+    display: none;
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* ฟอร์ม */
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* ปุ่ม Save */
+.submit-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background-color: #45a049;
+}

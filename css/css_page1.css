@@ -1,0 +1,107 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #F1F8E8;
+
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 20px;
+  background: #95D2B3;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.tab {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.tab button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px 5px 0 0;
+  cursor: pointer;
+  background-color: #e0e0e0;
+}
+
+.tab button.active {
+  background-color: #4caf50;
+  color: white;
+}
+
+.input-group {
+  margin: 20px 0;
+}
+
+.input-group input {
+  width: 80%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.button-group {
+  margin-top: 20px;
+}
+
+.button-group button {
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  background-color: #ccc;
+  cursor: pointer;
+}
+
+.button-group button:hover {
+  background-color: #bbb;
+}
+
+.headnav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #55AD9B; 
+  border-bottom: 1px solid #000; /* เส้นขอบด้านล่าง */
+  height: 70px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.headnav a {
+  margin-left: 20px;
+  text-decoration: none;
+  font-size: 16px;
+  color: black;
+}
+
+.headnav a:hover {
+  text-decoration: underline;
+}
+
+.headnav a:last-child {
+  margin-right: 0;
+}
+
+
+/* เนื้อหาของแต่ละหน้า */
+.content {
+  display: none;
+}
